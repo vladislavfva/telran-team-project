@@ -1,0 +1,38 @@
+address {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--size-middle);
+  margin: var(--size-middle-plus) 0;
+  font-style: normal;
+}
+address>div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-small);
+  padding: var(--size-middle);
+  background-color: var(--color-light-grey);
+  border-radius: var(--radius-big);
+  font-style: normal;
+}
+
+address>div>p:first-child{
+  color: var(--color-text-grey);
+}
+
+.heading {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.map {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border-radius: var(--radius-big);
+}
+
+.map>iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

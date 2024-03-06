@@ -25,6 +25,11 @@ h2 {
   font-size: 64px;
 }
 
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
 :root {
   --color-accent: #339933;
   --color-background: #ffffff;
@@ -39,5 +44,13 @@ h2 {
 
   --size-small: 16px;
   --size-middle: 32px;
+  --size-middle-plus: 40px;
   --size-big: 80px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--size-middle-plus);
 }
