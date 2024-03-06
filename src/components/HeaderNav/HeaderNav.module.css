@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-background);
+}
+
+.logo_container {
+    padding: 30px 0px 30px 40px;
+}
+
+.nav_container {
+    padding: 30px 0px 30px 0px;
+}
+
+.nav_element__style {
+  text-decoration: none;
+  margin: 15px;
+  line-height: 26px;
+  color: var(--color-text-gray);
+}
+
+.basket_container{
+    padding:30px 40px 30px 0px;
+}

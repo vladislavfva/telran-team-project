@@ -1,5 +1,9 @@
+import { HeaderNav } from "./components/HeaderNav/HeaderNav";
+
 function App() {
-  return <div className="App"></div>;
+  return <div>
+    <HeaderNav/>
+  </div>;
 }
 
 export default App;
