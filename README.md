@@ -1,7 +1,7 @@
 # telran-team-project
 Telran Project
 
-Stepan
+Stepan tested changes
 
 hello from Katia)))
 
