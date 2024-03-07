@@ -3,14 +3,36 @@
   align-items: center;
   justify-content: space-between;
   background: var(--color-background);
+  height: 128px;
 }
 
 .logo_container {
-    padding: 30px 0px 30px 40px;
+  padding: 30px 0px 30px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.central_container__nav {
+   padding: 30px 0px 30px 0px;
+}
+
+.btn {
+  position: relative;
+  left: calc(100% / 3);
+  height: 30px;
+  width: 150px;
+  background: var(--color-accent);
+  color: var(--color-background);
+  border: none;
+  border-radius: var(--radius-small);
+  padding: 6px, 16px, 6px, 16px;
+  font-size: var( --size-small);
 }
 
 .nav_container {
-    padding: 30px 0px 30px 0px;
+  padding-top: 15px;
 }
 
 .nav_element__style {
@@ -20,6 +42,8 @@
   color: var(--color-text-gray);
 }
 
-.basket_container{
-    padding:30px 40px 30px 0px;
+.basket_container {
+  display: flex;
+  gap: 20px;
+  padding: 30px 40px 30px 0px;
 }

@@ -1,22 +1,42 @@
 import React from 'react'
 import classes from './HeaderNav.module.css'
+import { SvgHeart } from '../iconComponents/SvgHeart';
+import { SvgBascket } from '../iconComponents/SvgBascket';
+import logo from '../images/logo.svg'
+import { SvgModeMoon } from '../iconComponents/SvgModeMoon';
+
 
 export const HeaderNav = () => {
   return (
     <div className={classes.container}>
       <div className={classes.logo_container}>
-        <div>logo</div>
+        <img src={logo} alt="logo" />
+        <div>
+        <SvgModeMoon />
+        </div>
+      </div>
+      
+      <div className={classes.central_container__nav}>
+        <button className={classes.btn}>1 day discount!</button>
+        <nav className={classes.nav_container}>
+          <a href="#" className={classes.nav_element__style}>
+            Main Page
+          </a>
+          <a href="#" className={classes.nav_element__style}>
+            Categories
+          </a>
+          <a href="#" className={classes.nav_element__style}>
+            All products
+          </a>
+          <a href="#" className={classes.nav_element__style}>
+            All sales
+          </a>
+        </nav>
       </div>
 
-      <nav className={classes.nav_container}>
-        <a href="#" className={classes.nav_element__style}>Main Page</a>
-        <a href="#" className={classes.nav_element__style}>Categories</a>
-        <a href="#" className={classes.nav_element__style}>All products</a>
-        <a href="#" className={classes.nav_element__style}>All sales</a>
-      </nav>
-
       <div className={classes.basket_container}>
-        <div>basket</div>
+        <SvgHeart />
+        <SvgBascket />
       </div>
     </div>
   );
