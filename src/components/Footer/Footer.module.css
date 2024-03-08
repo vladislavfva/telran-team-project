@@ -36,3 +36,8 @@ address>div>p:first-child{
   height: 100%;
   border: 0;
 }
+
+.icons {
+  display: flex;
+  gap: var(--size-small);
+}

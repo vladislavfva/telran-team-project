@@ -31,12 +31,12 @@ a {
 }
 
 :root {
-  --color-accent: #339933;
+  --color-accent: #92A134;
   --color-background: #ffffff;
-  --color-devider: #DDDDDD;
-  --color-light-grey: #F1F3F4;
-
-  --color-text: #282828;
+  --color-devider: #FFFFF1;
+  --color-light-grey: #F2F6D3;
+  --color-light-devider: #DDDDDD;
+  --color-text: #424436;
   --color-text-grey: #8B8B8B;
 
   --radius-small: 6px;
