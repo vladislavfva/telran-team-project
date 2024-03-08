@@ -2,7 +2,7 @@ address {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: var(--size-middle);
-  margin: var(--size-middle-plus) 0;
+  margin: var(--size-middle-plus) 0 var(--size-middle) 0;
   font-style: normal;
 }
 address>div {
@@ -41,3 +41,44 @@ address>div>p:first-child{
   display: flex;
   gap: var(--size-small);
 }
+
+@media screen and (max-width: 1439px) {
+  address {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--size-small-plus);
+    margin-bottom: var(--size-small-plus)
+  }
+
+  .map {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  address {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  address {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  address>div {
+    padding: 24px 20px;
+  }
+
+  .heading {
+    font-size: 28px;
+    line-height: 31px;
+  }
+
+  address>div>p:first-child{
+    font-size: 18px;
+    line-height: 23.4px;
+  }
+}
+
