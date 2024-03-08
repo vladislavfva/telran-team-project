@@ -11,7 +11,7 @@ body {
   font-size: 20px;
   font-weight: 500;
   color: var(--color-text);
-   background-color: gray;
+  background-color: gray;
 }
 
 h1, h2 {
@@ -26,27 +26,39 @@ h2 {
   font-size: 64px;
 }
 
-:root {
-  --color-accent: #339933;
-  --color-background: #ffffff;
-  --color-devider: #DDDDDD;
-  --color-light-grey: #F1F3F4;
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
 
-  --color-text: #282828;
+:root {
+  --color-accent: #92A134;
+  --color-background: #ffffff;
+  --color-devider: #FFFFF1;
+  --color-light-grey: #F2F6D3;
+  --color-light-devider: #DDDDDD;
+  --color-text: #424436;
   --color-text-grey: #8B8B8B;
 
   --radius-small: 6px;
   --radius-big: 12px;
 
   --size-small: 16px;
+  --size-small-plus: 20px;
   --size-middle: 32px;
+  --size-middle-plus: 40px;
   --size-big: 80px;
 }
 
-.container {
+/* .container {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 var(--size-middle-plus);
-  
 }
+
+@media screen and (max-width: 1000px) {
+  .container {
+    padding: 0 var(--size-small-plus);
+  }
+} */

@@ -1,9 +1,9 @@
 import React from 'react'
 import classes from './HeaderNav.module.css'
-import { SvgHeart } from '../iconComponents/SvgHeart';
-import { SvgBascket } from '../iconComponents/SvgBascket';
-import logo from '../images/logo.svg'
-import { SvgModeMoon } from '../iconComponents/SvgModeMoon';
+import { SvgHeart } from '../../assets/iconComponents/SvgHeart';
+import { SvgBascket } from '../../assets/iconComponents/SvgBascket';
+import logo from '../../assets/iconComponents/logo.svg'
+import { SvgModeMoon } from '../../assets/iconComponents/SvgModeMoon';
 
 
 export const HeaderNav = () => {
