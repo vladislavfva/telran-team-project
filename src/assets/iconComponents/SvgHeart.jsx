@@ -1,8 +1,10 @@
 import React from 'react'
+import classes from "../../components/HeaderNav/HeaderNav.module.css";
 
 export const SvgHeart = () => {
   return (
     <svg
+      className={classes.svg_media}
       width="48"
       height="48"
       viewBox="0 0 48 48"

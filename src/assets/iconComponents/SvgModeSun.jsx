@@ -1,8 +1,10 @@
 import React from 'react'
+import classes from "../../components/HeaderNav/HeaderNav.module.css";
 
 export const SvgModeSun = () => {
   return (
     <svg
+      className={classes.svg_mode__sun}
       width="60"
       height="32"
       viewBox="0 0 60 32"

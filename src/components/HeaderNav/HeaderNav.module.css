@@ -12,7 +12,6 @@
 }
 
 .logo_container {
-  padding: 30px 0px 30px 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +19,7 @@
 }
 
 .central_container__nav {
-   padding: 30px 0px 30px 0px;
+  padding: 30px 0px 30px 0px;
 }
 
 .btn {
@@ -33,22 +32,197 @@
   border: none;
   border-radius: var(--radius-small);
   padding: 6px, 16px, 6px, 16px;
-  font-size: var( --size-small);
+  font-size: var(--size-small);
 }
 
 .nav_container {
+  display: flex;
+  justify-content: center;
+  height: 26px;
   padding-top: 15px;
+}
+
+.nav_container ul {
+  list-style: none;
 }
 
 .nav_element__style {
   text-decoration: none;
-  margin: 15px;
+  margin: 13px;
   line-height: 26px;
   color: var(--color-text-gray);
 }
 
-.basket_container {
+.nav_element__style:hover {
+  /* border-radius: var(--radius-small); */
+  color: var(--color-accent);
+}
+
+.icon_container {
   display: flex;
-  gap: 20px;
-  padding: 30px 40px 30px 0px;
+  gap: 10px;
+}
+
+/* menu and menu span this burger-menu will be visibal on the 900 media, now it is display: none and he is not on our surface(poverxnia) */
+.cross_btn{
+  display: none;
+}
+
+.btn_burger__menu {
+  display: none;
+}
+
+.menu_btn {
+  display: none;
+  border: none;
+  background: var(--color-background);
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 45px;
+  height: 40px;
+}
+
+.menu span {
+  height: 5px;
+  width: 100%;
+  background-color: var(--color-text);
+  border-radius: var(--radius-small);
+}
+
+@media screen and (max-width: 1000px) {
+  .logo {
+    width: 68px;
+    height: 68px;
+  }
+
+  .nav_element__style {
+    line-height: 20px;
+    transition: font-size 0.6;
+  }
+
+  /* in the iconComponents wrote a style to change the size of the icon (SvgBasket, SvgHeart)*/
+  .svg_media {
+    width: 44px;
+    height: 44px;
+  }
+
+  .svg_mode__moon {
+    width: 52.5px;
+    height: 28px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .nav_element__style {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+/* display: none central nav and create burger-menu 800px */
+@media screen and (max-width: 800px) {
+/* .icon_container{
+margin-left: 500px;
+} */
+
+  .btn {
+    display: none;
+  }
+
+  .menu_btn {
+    display: flex;
+  }
+
+  .menu {
+    display: flex;
+  }
+
+  .central_container__nav {
+    background: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 300px;
+    /* height: ; */
+    gap: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .nav_container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-left: 30px;
+    margin-top: 180px;
+  }
+
+  .nav_element__style {
+    font-size: 24px;
+    line-height: 31px;
+  }
+
+  .nav_element__style:hover {
+    color: var(--color-accent);
+  }
+
+  .btn_burger__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    width: 211px;
+    background: var(--color-accent);
+    color: var(--color-background);
+    border: none;
+    border-radius: var(--radius-small);
+    padding: 6px, 16px, 6px, 16px;
+    font-size: var(--size-small);
+    margin-top: 100px;
+    margin-left: 38px;
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .cross_btn {
+    display: flex;
+    border: none;
+    background: var(--color-background);
+    position: absolute;
+    right: 35px;
+    top: 45px;
+  }
+
+  .cross {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50px;
+    height: 50px;
+  }
+
+  .cross span {
+    height: 5px;
+    width: 100%;
+    background-color: var(--color-text);
+    border-radius: var(--radius-small);
+  }
+
+  .span_bevelled__top {
+    /* rotate makes a bevelled line (skoscheny) */
+    transform: rotate(45deg);
+    position: absolute;
+    top: 17px;
+  }
+
+  .span_bevelled__botton {
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 17px;
+  }
 }
