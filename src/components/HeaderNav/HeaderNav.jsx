@@ -19,7 +19,7 @@ export const HeaderNav = () => {
           <SvgModeMoon />
         </div>
       </div>
-      {!burgerMenuOpen && (
+      {burgerMenuOpen && (
         <div className={classes.central_container__nav}>
           <button className={classes.btn}>1 day discount!</button>
           <button
