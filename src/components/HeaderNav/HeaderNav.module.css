@@ -125,9 +125,13 @@
 
 /* display: none central nav and create burger-menu 800px */
 @media screen and (max-width: 800px) {
-/* .icon_container{
-margin-left: 500px;
-} */
+.container_icon__menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
 
   .btn {
     display: none;
@@ -147,7 +151,7 @@ margin-left: 500px;
     flex-direction: column;
     justify-content: start;
     width: 300px;
-    /* height: ; */
+    height: 100vh;
     gap: 30px;
     position: absolute;
     top: 0;

@@ -65,21 +65,23 @@ export const HeaderNav = () => {
         </div>
       )}
 
+      <div className={classes.container_icon__menu}>
         <div className={classes.icon_container}>
           <SvgHeart />
           <SvgBascket />
         </div>
 
-      <button
-        className={classes.menu_btn}
-        onClick={() => setBurgerMenuOpen(!burgerMenuOpen)}
-      >
-        <div className={classes.menu}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </button>
+        <button
+          className={classes.menu_btn}
+          onClick={() => setBurgerMenuOpen(!burgerMenuOpen)}
+        >
+          <div className={classes.menu}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+      </div>
     </div>
   );
 };
