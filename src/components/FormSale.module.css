@@ -1,0 +1,50 @@
+.form_sale__container {
+  background: linear-gradient(
+    to right,
+    rgba(135, 147, 61, 1),
+    rgba(85, 97, 11, 1)
+  );
+  border-radius: var(--radius-big);
+  margin: var(--size-middle-plus) var(--size-middle);
+}
+
+div > input {
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid white;
+  border-radius: var(--radius-small);
+  margin: 5px 0;
+  width: 200px;
+  height: 40px;
+  color: rgba(255, 255, 241, 1);
+}
+
+.sale_button {
+  border-radius: var(--radius-small);
+  margin: 5px 0;
+  width: 200px;
+  height: 40px;
+}
+
+.inside_block {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--size-middle);
+  margin: var(--size-middle-plus) 0 var(--size-middle) 0;
+  font-style: normal;
+}
+
+/* .form_sale__container {
+  display: flex;
+  justify-content: center;
+} */
+
+.inside_img {
+  max-width: 100%;
+}
+
+.paragraf_sale {
+  display: flex;
+  justify-content: center;
+  font-size: 64px;
+  color: rgba(255, 255, 255, 1);
+}
