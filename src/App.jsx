@@ -1,8 +1,13 @@
-import ProductsList from "./components/ProductItem/ProductsList/ProductsList";
+import { Outlet } from "react-router-dom";
+import SalesPage from "./pages/SalesPage";
 
 function App() {
-  return <div className="App">
-    <ProductsList />
+  return <div className="container">
+    <Outlet>
+      <div>
+        <SalesPage />
+      </div>
+    </Outlet>
   </div>;
 }
 

@@ -57,6 +57,10 @@
     height: 250px;
   }
 
+  .card_info {
+    padding: var(--size-small-plus); 
+  }
+
   .price {
     margin-right: 12px;
   }
@@ -71,7 +75,7 @@
     height: 220px;
   }
 
-  .title, .discount_price {
+  .title, .discount_price, .discount {
     font-size: 18px;
   }
 
