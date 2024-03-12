@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--size-middle-plus);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-background);
+  height: 530px;
+}
+
+.categories_container {
+  width: 1360px;
+  height: 528px;
+  background: rgb(85, 230, 85);
+}
+
+.categories_container h3 {
+  margin-top: 50px;
+}
+
+.info_container {
+  height: 418px;
+  background: rgb(101, 68, 133);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_container div {
+  background: pink;
+  width: 316px;
+  height: 350px;
+}
