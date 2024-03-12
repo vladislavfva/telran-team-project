@@ -34,14 +34,19 @@
 
 .button_check {
   margin-top: 40px;
-  height: 40px;
-  width: 120px;
+  height: 58px;
+  width: 218px;
   background: var(--color-accent);
   color: var(--color-background);
   padding: 16px, 56px, 16px, 56px;
   border: none;
   border-radius: var(--radius-small);
   font-size: 20px;
+}
+
+.button_check:hover{
+  cursor: pointer;
+  background-color: #afc905;
 }
 
 @media screen and (max-width: 1000px) {
@@ -63,8 +68,6 @@
 
   .button_check {
     margin-top: 80px;
-    height: 40px;
-    width: 120px;
     padding: 16px, 56px, 16px, 56px;
     font-size: 20px;
   }
@@ -89,8 +92,6 @@
   }
 
   .button_check {
-    height: 40px;
-    width: 120px;
     padding: 16px, 56px, 16px, 56px;
     font-size: 20px;
   }
@@ -114,18 +115,10 @@
 
    .button_check {
     margin-top: 20px;
-    height: 40px;
-    width: 120px;
-    padding: 16px, 56px, 16px, 56px;
-    font-size: 20px;
   }
 }
 
 @media screen and (max-width: 360px) {
-  .container {
-    padding: 0 var(--size-small-plus);
-    height: 600px;
-  }
 
   .context_container {
     width: 600px;
@@ -133,15 +126,6 @@
 
   .text_amazing__discounts {
     height: 228px;
-    line-height: 66px;
-    font-size: 60px;
   }
 
-   .button_check {
-    margin-top: 20px;
-    height: 40px;
-    width: 120px;
-    padding: 16px, 56px, 16px, 56px;
-    font-size: 20px;
-  }
 }

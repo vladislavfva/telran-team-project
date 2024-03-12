@@ -35,6 +35,11 @@
   font-size: var(--size-small);
 }
 
+.btn:hover {
+  cursor: pointer;
+  background-color: #afc905;
+}
+
 .nav_container {
   display: flex;
   justify-content: center;
@@ -54,8 +59,8 @@
 }
 
 .nav_element__style:hover {
-  /* border-radius: var(--radius-small); */
   color: var(--color-accent);
+  text-decoration-line: underline;
 }
 
 .icon_container {
@@ -64,7 +69,7 @@
 }
 
 /* menu and menu span this burger-menu will be visibal on the 900 media, now it is display: none and he is not on our surface(poverxnia) */
-.cross_btn{
+.cross_btn {
   display: none;
 }
 
@@ -124,14 +129,13 @@
 }
 
 /* display: none central nav and create burger-menu 800px */
-@media screen and (max-width: 800px) {
-.container_icon__menu{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-}
-
+@media screen and (max-width: 767px) {
+  .container_icon__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
 
   .btn {
     display: none;
@@ -146,6 +150,7 @@
   }
 
   .central_container__nav {
+    /* display: none; */
     background: var(--color-background);
     display: flex;
     flex-direction: column;
@@ -153,9 +158,17 @@
     width: 300px;
     height: 100vh;
     gap: 30px;
-    position: absolute;
+    position: fixed;
     top: 0;
+    right: -300px;
+    overflow: hidden;
+    transition: right 200ms ease-in-out 300ms;
+  }
+
+  /* add .active style to make the burger-menu appear(zjavlatusia) when you click the button */
+  .central_container__nav.active {
     right: 0;
+    transition: right 200ms ease-in-out 0ms;
   }
 
   .nav_container {
@@ -193,12 +206,17 @@
     line-height: 30px;
   }
 
+  .btn_burger__menu:hover {
+    cursor: pointer;
+    background-color: #afc905;
+  }
+
   .cross_btn {
     display: flex;
     border: none;
     background: var(--color-background);
     position: absolute;
-    right: 35px;
+    right: 45px;
     top: 45px;
   }
 
