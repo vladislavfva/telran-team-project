@@ -1,0 +1,11 @@
+.product_card {
+  background-color: var(--color-background);
+  border-radius: var(--radius-big);
+  border: solid 1px var(--color-light-devider);
+  overflow: hidden;
+}
+
+.product_card img {
+  width: 100%;
+  border-bottom: solid 1px var(--color-light-devider);
+}
