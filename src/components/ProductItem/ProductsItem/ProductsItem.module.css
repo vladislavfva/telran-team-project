@@ -51,3 +51,31 @@
   background: var(--color-discount);
   border-radius: var(--radius-small);
 }
+
+@media screen and (max-width: 1439px) {
+  .product_card img {
+    height: 250px;
+  }
+
+  .price {
+    margin-right: 12px;
+  }
+}
+
+@media screen and (max-width: 999px) {
+
+}
+
+@media screen and (max-width: 767px) {
+  .product_card img {
+    height: 220px;
+  }
+
+  .title, .discount_price {
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 36px;
+  }
+}
