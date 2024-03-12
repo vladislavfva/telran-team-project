@@ -7,7 +7,9 @@ const initialState = {
 export const getProducts = createAsyncThunk(
   'products/getProducts',
   async (_, { rejectWithValue, dispatch }) => {
-    const res = await fetch(process.env.REACT_APP_BACKEND_BASE_URL);
+    const res = await fetch(
+      process.env.REACT_APP_BACKEND_BASE_URL + '/products/all'
+    );
 
     const data = await res.json();
     console.log(data);
