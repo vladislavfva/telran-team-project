@@ -3,7 +3,7 @@ import { InstagramIcon, WhatsappIcon } from './FooterIcons';
 import { Link } from 'react-router-dom';
 
 function Footer() {
-  return (<footer className='container'>
+  return (<footer>
   <h2>Contact</h2>
   <address>
     <div>
