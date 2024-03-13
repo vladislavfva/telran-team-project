@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   products: [],
-  priceFrom: '',
+  priceFrom: 0,
+  priceTo: Infinity,
 };
 
 export const getProducts = createAsyncThunk(
@@ -28,6 +29,9 @@ export const productsSlice = createSlice({
     setPriceFrom: (state, action) => {
       state.priceFrom = action.payload;
     },
+    setPriceTo: (state, action) => {
+      state.priceFrom = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -40,5 +44,5 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { setProducts, setPriceFrom } = productsSlice.actions;
+export const { setProducts, setPriceFrom, setPriceTo } = productsSlice.actions;
 export default productsSlice.reducer;
