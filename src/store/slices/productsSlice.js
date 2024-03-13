@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   products: [],
+  originalProducts: [],
   filterDiscounted: false,
   randomize: false,
 };
@@ -29,24 +30,30 @@ export const productsSlice = createSlice({
     setRandomize: (state, action) => {
       state.randomize = action.payload;
     },
-    onlyDiscounted: (state, action) => {
-      state.products = action.payload.filter(
-        (product) => product.discont_price > 0
+    filterPriceFrom: (state, action) => {
+      state.products = state.originalProducts.filter(
+        (product) => product.discont_price >= action.payload
       );
+      console.log(state.products);
+    },
+    filterPriceTo: (state, action) => {
+      state.products = state.originalProducts.filter(
+        (product) => product.discont_price <= action.payload
+      );
+      console.log(state.products);
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.fulfilled, (state, action) => {
         console.log('fulfilled');
-        console.log(state.filterDiscounted);
         if (state.filterDiscounted) {
           state.products = action.payload.filter(
             (product) => product.discont_price > 0
           );
+          state.originalProducts = state.products;
         }
         if (state.randomize) {
-          console.log(state.randomize);
           state.products = state.products
             .slice()
             .sort(() => Math.random() - 0.5)
@@ -58,6 +65,10 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { onlyDiscounted, setFilterDiscounted, setRandomize } =
-  productsSlice.actions;
+export const {
+  setFilterDiscounted,
+  setRandomize,
+  filterPriceFrom,
+  filterPriceTo,
+} = productsSlice.actions;
 export default productsSlice.reducer;

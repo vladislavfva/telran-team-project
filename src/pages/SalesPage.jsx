@@ -1,15 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
 import ProductsList from "../components/ProductsList/ProductsList";
-import { setPriceFrom, setPriceTo } from "../store/slices/productsSlice";
+import { filterPriceFrom, filterPriceTo } from '../store/slices/productsSlice'
 
 function SalesPage() {
+  const dispatch = useDispatch();
+
+  const handlePriceFrom = (price) => {
+    dispatch(filterPriceFrom(price))
+  }
+
+  const handlePriceTo = (price) => {
+    dispatch(filterPriceTo(price))
+  }
+
   return ( <>
     <h2>Discounted items</h2>
     <div>
       <div>
         <p>Price</p>
-        <input type="number" placeholder="from" /> 
-        <input type="number" placeholder="to" />
+        <input type="number" placeholder="from" onChange={(e) => handlePriceFrom(e.target.value)}/> 
+        <input type="number" placeholder="to"onChange={(e) => handlePriceTo(e.target.value)}/>
       </div>
       <div>
       <p>Sorted</p>
@@ -20,7 +30,7 @@ function SalesPage() {
       </div>
     </div>
     <div className='section'>
-    {<ProductsList />}
+    <ProductsList filterDiscounted={true} randomize={false}/>
     </div>
   </> );
 }
