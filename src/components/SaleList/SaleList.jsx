@@ -8,6 +8,8 @@ function SaleList() {
   const start = 0;
   const end = 4;
 
+  
+
   return ( <div className='section'>
     <div className={classes.sale_info}>
       <h2>Sale</h2>

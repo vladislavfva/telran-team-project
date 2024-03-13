@@ -4,6 +4,8 @@ function SalesPage() {
   const discountFilter = (product) =>
   product.discont_price && product.discont_price < product.price;
 
+  
+
   return ( <>
     <h2>Discounted items</h2>
     <div>
@@ -21,7 +23,7 @@ function SalesPage() {
       </div>
     </div>
     <div className='section'>
-    {<ProductsList filterFunction={discountFilter}/>}
+    <ProductsList filterFunction={discountFilter} />
     </div>
   </> );
 }
