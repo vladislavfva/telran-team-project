@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   products: [],
+  priceFrom: '',
 };
 
 export const getProducts = createAsyncThunk(
@@ -20,11 +21,14 @@ export const getProducts = createAsyncThunk(
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
-  /* reducers: {
+  reducers: {
     setProducts: (state, action) => {
       state.products = action.payload;
     },
-  }, */
+    setPriceFrom: (state, action) => {
+      state.priceFrom = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.fulfilled, (state, action) => {
@@ -36,5 +40,5 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { setProducts } = productsSlice.actions;
+export const { setProducts, setPriceFrom } = productsSlice.actions;
 export default productsSlice.reducer;

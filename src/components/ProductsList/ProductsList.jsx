@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { getProducts } from '../../store/slices/productsSlice';
 import classes from './ProductsList.module.css';
 
-function ProductsList({ filterFunction, sliceStart, sliceEnd }) {
+function ProductsList({ filterFunction, sliceStart, sliceEnd, filterPriceFrom }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProducts());
@@ -17,6 +17,7 @@ function ProductsList({ filterFunction, sliceStart, sliceEnd }) {
       {products
         ?.filter(filterFunction)
         .slice(sliceStart, sliceEnd)
+        ?.filter(filterPriceFrom)
         .map((product) => (
           <ProductsItem key={product.title} product={product} />
         ))}
