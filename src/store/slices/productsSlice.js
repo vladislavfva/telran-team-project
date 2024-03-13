@@ -2,8 +2,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   products: [],
-  priceFrom: 0,
-  priceTo: Infinity,
+  filterDiscounted: false,
+  randomize: false,
 };
 
 export const getProducts = createAsyncThunk(
@@ -23,26 +23,41 @@ export const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    setProducts: (state, action) => {
-      state.products = action.payload;
+    setFilterDiscounted: (state, action) => {
+      state.filterDiscounted = action.payload;
     },
-    setPriceFrom: (state, action) => {
-      state.priceFrom = action.payload;
+    setRandomize: (state, action) => {
+      state.randomize = action.payload;
     },
-    setPriceTo: (state, action) => {
-      state.priceFrom = action.payload;
+    onlyDiscounted: (state, action) => {
+      state.products = action.payload.filter(
+        (product) => product.discont_price > 0
+      );
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.fulfilled, (state, action) => {
         console.log('fulfilled');
-        state.products = action.payload;
+        console.log(state.filterDiscounted);
+        if (state.filterDiscounted) {
+          state.products = action.payload.filter(
+            (product) => product.discont_price > 0
+          );
+        }
+        if (state.randomize) {
+          console.log(state.randomize);
+          state.products = state.products
+            .slice()
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 4);
+        }
       })
       .addCase(getProducts.pending, () => console.log('pending'))
       .addCase(getProducts.rejected, () => console.log('rejected'));
   },
 });
 
-export const { setProducts, setPriceFrom, setPriceTo } = productsSlice.actions;
+export const { onlyDiscounted, setFilterDiscounted, setRandomize } =
+  productsSlice.actions;
 export default productsSlice.reducer;
