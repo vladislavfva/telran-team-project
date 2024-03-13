@@ -8,8 +8,7 @@ const initialState = {
 export const getCategories = createAsyncThunk(
     'categories/getCategories',
     async (_, {rejectWithValue, dispatch}) => {
-        const response = await fetch(
-            process.env.REACT_APP_BACKEND_BASE_URL + '/categories/all');
+        const response = await fetch(process.env.REACT_APP_BACKEND_BASE_URL + '/categories/all');
         const data = await response.json();
         console.log(data);
         return data;
@@ -19,6 +18,9 @@ export const getCategories = createAsyncThunk(
 const categoriesSlise = createSlice({
   name: "categories",
   initialState,
+  // reducers: {
+  //   setCategories: (state, action) => {state.categories = action.payload},
+  // },
   extraReducers: (builder) => {
        builder
          .addCase(getCategories.fulfilled, (state, action) => {

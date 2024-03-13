@@ -1,0 +1,31 @@
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--size-middle-plus);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-background);
+  height: 530px;
+}
+
+.categories_container {
+  width: 1360px;
+  height: 528px;
+}
+
+.categories_container h3 {
+  margin-top: 50px;
+}
+
+.info_container {
+  height: 418px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}

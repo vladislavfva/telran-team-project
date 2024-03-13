@@ -1,10 +1,12 @@
-import { Categories } from "./components/Categories/Categories";
+
+import CategoriesRender from "./components/CategoriesRender/CategoriesRender";
 
 function App() {
-  return <div className="App">
-    <Categories/>
-    
-  </div>;
+  return (
+    <div className="container">
+          <CategoriesRender />
+    </div>
+  );
 }
 
 export default App;
