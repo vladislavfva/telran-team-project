@@ -7,6 +7,7 @@ import { store } from './store/store';
 import { Provider } from 'react-redux';
 import SalesPage from './pages/SalesPage';
 import HomePage from './pages/HomePage';
+import CategoriesPage from "./pages/CategoriesPage";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,9 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: 'all-categories',
+        element: <CategoriesPage/>,
+      }
         path: '/',
         element: <HomePage />,
       },

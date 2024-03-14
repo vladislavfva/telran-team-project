@@ -70,9 +70,7 @@ img {
   .container {
     padding: 0 var(--size-small-plus);
   }
-
-}
-
+  
   .section {
     margin-bottom: 60px;
   }
