@@ -67,7 +67,7 @@
   gap: 32px;
 }
 
-input {
+/* input {
   height: 58px;
   border-radius: var(--radius-small);
   border: solid 1px var(--color-background);
@@ -78,4 +78,4 @@ input {
 
 input::placeholder {
   color: var(--color-background);
-}
+} */

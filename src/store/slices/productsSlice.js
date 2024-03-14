@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   products: [],
-  originalProducts: [],
+  allProducts: [],
+  currentProducts: [],
   filterDiscounted: false,
   randomize: false,
 };
@@ -31,28 +32,55 @@ export const productsSlice = createSlice({
       state.randomize = action.payload;
     },
     filterPriceFrom: (state, action) => {
-      state.products = state.originalProducts.filter(
-        (product) => product.discont_price >= action.payload
-      );
-      console.log(state.products);
+      if (action.payload > 0) {
+        if (state.currentProducts.length > 0) {
+          state.products = state.currentProducts.filter((product) => {
+            if (product.discont_price) {
+              return product.discont_price >= action.payload;
+            } else {
+              return product.price >= action.payload;
+            }
+          });
+        } else {
+          state.products = state.allProducts.filter((product) => {
+            if (product.discont_price) {
+              return product.discont_price >= action.payload;
+            } else {
+              return product.price >= action.payload;
+            }
+          });
+        }
+      }
+      state.currentProducts = state.products;
     },
     filterPriceTo: (state, action) => {
-      state.products = state.originalProducts.filter(
-        (product) => product.discont_price <= action.payload
-      );
-      console.log(state.products);
+      if (action.payload > 0) {
+        if (state.currentProducts.length > 0) {
+          state.products = state.currentProducts.filter(
+            (product) => product.discont_price <= action.payload
+          );
+        } else {
+          state.products = state.allProducts.filter(
+            (product) => product.discont_price <= action.payload
+          );
+          state.currentProducts = state.products;
+        }
+      }
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.fulfilled, (state, action) => {
-        console.log('fulfilled');
+        state.allProducts = state.products;
+
         if (state.filterDiscounted) {
           state.products = action.payload.filter(
             (product) => product.discont_price > 0
           );
-          state.originalProducts = state.products;
+        } else {
+          state.products = action.payload;
         }
+
         if (state.randomize) {
           state.products = state.products
             .slice()
