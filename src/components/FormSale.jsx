@@ -33,8 +33,8 @@ function FormSale() {
         <div>
           <img className={classes.inside_img} src={saleBlockImage} alt="" />
         </div>
-        <div className={classes.inside_block__input__name}>
-          <div>
+        <div className={classes.inside_block__inputs}>
+          <div className={classes.inside_block__input__name}>
             <input
               type="text"
               placeholder="Name"
@@ -63,7 +63,11 @@ function FormSale() {
           </div>
 
           <div>
-            <button className={classes.sale_button} type="button" onClick={userSaleSubmit}>
+            <button
+              className={classes.sale_button}
+              type="button"
+              onClick={userSaleSubmit}
+            >
               Get a discount
             </button>
           </div>
