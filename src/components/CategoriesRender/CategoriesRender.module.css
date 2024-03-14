@@ -1,6 +1,5 @@
 .container {
   max-width: 1360px;
-  height: 540px;
 }
 
 .top_container {
@@ -37,28 +36,19 @@
   color: var(--color-accent);
 }
 
-/* 
-@media screen and (max-width: 1439px) {
-
-  .container{
-    width: 1200px;
-  }
-
-  .top_container h2{
-    padding: 30px 28px 17px 0;
-  }
-  
-
-} */
 
 @media screen and (max-width: 999px) {
   .container {
-    width: 960px;
-    height: 420px;
+    max-width: 960px;
   }
 
   .categories_container {
-    width: 960px;
-    height: 318px;
+    max-width: 960px;
   }
+
+  .line{
+    width: 80px;
+
+  }
+
 }
