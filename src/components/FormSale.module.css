@@ -1,0 +1,71 @@
+.form_sale__container {
+  background: linear-gradient(
+    to right,
+    rgba(135, 147, 61, 1),
+    rgba(85, 97, 11, 1)
+  );
+  border-radius: var(--radius-big);
+  margin: var(--size-middle-plus) var(--size-middle);
+  border: none;
+  width: 100%;
+  max-width: 1360px;
+  max-height: 486px;
+  padding: 32px, 32px, 0px, 32px;
+}
+
+.paragraf_sale {
+  display: flex;
+  justify-content: center;
+  max-width: 1296px;
+  max-height: 70px;
+  font-size: 64px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.inside_img {
+  max-width: 748px;
+  max-height: 360px;
+}
+
+.inside_block__inputs {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  max-width: 516px;
+  max-height: 296px;
+  gap: 32px;
+}
+
+.inside_block__input__name {
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(255, 255, 241, 1);
+  border-radius: var(--radius-small);
+  padding: 16px, 32px, 16px, 32px;
+  width: 100%;
+  height: 58px;
+  gap: 10px;
+  color: rgba(255, 255, 241, 1);
+}
+
+/* div > input {
+} */
+
+.sale_button {
+  border-radius: var(--radius-small);
+  border: none;
+  padding: 16px, 32px, 16px, 32px;
+  width: 516px;
+  height: 58px;
+  gap: 10px;
+}
+
+.inside_block {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--size-middle);
+  margin: var(--size-middle-plus) 0 var(--size-middle) 0;
+  font-style: normal;
+  max-width: 1296px;
+  max-height: 360px;
+  gap: 32px;
+}
