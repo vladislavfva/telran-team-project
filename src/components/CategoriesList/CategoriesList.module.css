@@ -1,0 +1,26 @@
+
+.categories_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+  gap: var(--size-middle);
+  grid-auto-flow: dense;
+}
+
+
+@media screen and (max-width: 1439px) {
+  .categories_container {
+    gap: var(--size-small-plus);
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .categories_container{
+    grid-template-columns: repeat(3, 1fr);
+  } 
+}
+
+@media screen and (max-width: 760px) {
+  .categories_container {
+     grid-template-columns: repeat(2, 1fr);
+  }
+} 
