@@ -296,3 +296,34 @@
     top: 13px;
   }
 }
+
+@media screen and (max-width: 350px){
+.logo_container{
+  gap: 5px;
+}
+
+.icon_container{
+  gap: 5px;
+  padding-bottom: 5px;
+}
+ .container_icon__menu{
+  gap: 10px;
+  padding-bottom: 3px;
+ }
+
+  .menu {
+    width: 32px;
+    height: 30px;
+  }
+
+  .central_container__nav.active{
+   right: -15px;
+  }
+
+  .nav_container {
+    gap: 25px;
+    margin-left: 30px;
+    margin-top: 150px;
+  }
+
+}

@@ -16,7 +16,7 @@
 }
 
 .text_amazing__discounts {
-  height: 212px;
+  max-height: 212px;
   line-height: 105px;
   color: var(--color-background);
 }
@@ -66,7 +66,7 @@
   }
 
   .context_container {
-    width: 728px;
+    max-width: 728px;
   }
 
   .text_amazing__discounts {
@@ -86,7 +86,7 @@
   }
 
   .context_container {
-    width: 425px;
+    max-width: 425px;
     padding: 30px 10px 0 0;
     margin-left: 10px;
   }
@@ -102,22 +102,64 @@
 }
 
 @media screen and (max-width: 479px) {
-.text_amazing__discounts {
-  font-size: 52px;
-  line-height: 57px;
-}
+  .text_amazing__discounts {
+    font-size: 48px;
+    line-height: 57px;
+  }
 
   .context_container {
-    width: 600px;
+    max-width: 600px;
     padding: 20px 5px 0 0;
     margin-left: 5px;
   }
 
   .text_amazing__discounts {
-    height: 228px;
+    max-height: 228px;
   }
 
-    .button_check {
+  .button_check {
     margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .text_amazing__discounts {
+    font-size: 40px;
+    line-height: 57px;
+  }
+
+  .context_container {
+    padding: 20px 0 0 0;
+  }
+
+  .text_amazing__discounts {
+    max-height: 228px;
+  }
+
+  .button_check {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .text_amazing__discounts {
+    font-size: 40px;
+    line-height: 57px;
+  }
+
+  .context_container {
+    padding: 20px 0 0 0;
+    margin-left: -8px;
+  }
+
+  .text_amazing__discounts {
+    max-height: 228px;
+  }
+
+  .button_check {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: -8px;
   }
 }
