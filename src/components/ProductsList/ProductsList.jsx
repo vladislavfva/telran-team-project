@@ -3,23 +3,24 @@ import ProductsItem from '../ProductsItem/ProductsItem';
 import { useEffect } from 'react';
 import { getProducts } from '../../store/slices/productsSlice';
 import classes from './ProductsList.module.css';
+import { setFilterDiscounted, setRandomize } from '../../store/slices/productsSlice'
 
-function ProductsList({ filterFunction, sliceStart, sliceEnd }) {
+function ProductsList({filterDiscounted, randomize}) {
+  const products = useSelector((state) => state.product.products);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+    dispatch(setFilterDiscounted(filterDiscounted));
+    dispatch(setRandomize(randomize));
 
-  const products = useSelector((state) => state.product.products);
+  }, [filterDiscounted, setRandomize]);
 
   return (
     <div className={classes.products_list}>
-      {products
-        ?.filter(filterFunction)
-        .slice(sliceStart, sliceEnd)
-        .map((product) => (
-          <ProductsItem key={product.title} product={product} />
-        ))}
+      {products.map((product) => (
+        <ProductsItem key={product.id} product={product} />
+      ))}
     </div>
   );
 }
