@@ -11,7 +11,7 @@ body {
   font-size: 20px;
   font-weight: 500;
   color: var(--color-text);
-  background-color: gray;
+  background-color: var(--color-background);
 }
 
 h1, h2 {
@@ -37,7 +37,7 @@ img {
 
 :root {
   --color-accent: #92A134;
-  --color-background: #ffffff;
+  --color-background: #fffff1;
   --color-devider: #FFFFF1;
   --color-light-grey: #F2F6D3;
   --color-light-devider: #DDDDDD;

@@ -7,20 +7,22 @@ import { store } from './store/store';
 import { Provider } from 'react-redux';
 import SalesPage from './pages/SalesPage';
 import HomePage from './pages/HomePage';
-import CategoriesPage from "./pages/CategoriesPage";
+import CategoriesPage from './pages/CategoriesPage';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
       {
-        path: 'all-categories',
-        element: <CategoriesPage/>,
-      }
         path: '/',
         element: <HomePage />,
       },
+      {
+        path: 'all-categories',
+        element: <CategoriesPage />,
+      },
+
       {
         path: 'all-sales',
         element: <SalesPage />,
@@ -29,7 +31,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>

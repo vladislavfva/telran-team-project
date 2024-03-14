@@ -5,24 +5,20 @@
     rgba(85, 97, 11, 1)
   );
   border-radius: var(--radius-big);
-  margin: var(--size-middle-plus) var(--size-middle);
   border: none;
   width: 100%;
   max-width: 1360px;
-  max-height: 486px;
-  padding: 32px, 32px, 0px, 32px;
+  padding: 32px 32px 0px 32px;
 }
 
 .paragraf_sale {
-  display: flex;
-  justify-content: center;
-  max-width: 1296px;
-  max-height: 70px;
+  text-align: center;
   font-size: 64px;
   color: rgba(255, 255, 255, 1);
 }
 
 .inside_img {
+  width: 50%;
   max-width: 748px;
   max-height: 360px;
 }
@@ -31,9 +27,10 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
+  width: 50%;
   max-width: 516px;
-  max-height: 296px;
   gap: 32px;
+  margin-bottom: 32px;
 }
 
 .inside_block__input__name {
@@ -68,4 +65,17 @@
   max-width: 1296px;
   max-height: 360px;
   gap: 32px;
+}
+
+input {
+  height: 58px;
+  border-radius: var(--radius-small);
+  border: solid 1px var(--color-background);
+  background: transparent;
+  padding-left: var(--size-middle);
+  color: var(--color-background);
+}
+
+input::placeholder {
+  color: var(--color-background);
 }
