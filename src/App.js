@@ -1,10 +1,16 @@
-
-import CategoriesRender from "./components/CategoriesRender/CategoriesRender";
+import { HeaderNav } from "./components/HeaderNav/HeaderNav";
+import { Outlet } from 'react-router-dom';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
     <div className="container">
-          <CategoriesRender />
+     <HeaderNav />
+      <Outlet>
+        <div>
+        </div>
+      </Outlet>
+      <Footer />
     </div>
   );
 }
