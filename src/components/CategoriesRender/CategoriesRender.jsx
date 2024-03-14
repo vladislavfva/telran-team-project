@@ -19,7 +19,7 @@ const CategoriesRender = () => {
 
       <CategoriesList sliceStart={start} sliceEnd={end} />
       <Link to="/all-categories" className={`${classes.link} ${classes.mobile}`}>
-        All sales
+        All categories
       </Link>
     </div>
   );
