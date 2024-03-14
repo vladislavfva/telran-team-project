@@ -3,7 +3,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const initialState = {
   products: [],
   allProducts: [],
-  currentProducts: [],
+  productsBeforeSort: [],
+  priceFrom: 0,
+  priceTo: 0,
   filterDiscounted: false,
   randomize: false,
 };
@@ -31,40 +33,48 @@ export const productsSlice = createSlice({
     setRandomize: (state, action) => {
       state.randomize = action.payload;
     },
-    filterPriceFrom: (state, action) => {
-      if (action.payload > 0) {
-        if (state.currentProducts.length > 0) {
-          state.products = state.currentProducts.filter((product) => {
-            if (product.discont_price) {
-              return product.discont_price >= action.payload;
-            } else {
-              return product.price >= action.payload;
-            }
-          });
-        } else {
-          state.products = state.allProducts.filter((product) => {
-            if (product.discont_price) {
-              return product.discont_price >= action.payload;
-            } else {
-              return product.price >= action.payload;
-            }
-          });
+    filterPrice: (state, action) => {
+      const [priceFrom, priceTo] = action.payload;
+
+      // Устанавливаем значения цен, если они не равны undefined
+      state.priceFrom = priceFrom !== undefined ? priceFrom : state.priceFrom;
+      state.priceTo = priceTo !== undefined ? priceTo : state.priceTo;
+
+      // Фильтрация продуктов по цене
+      state.products = state.allProducts.filter((product) => {
+        const discontPrice = product.discont_price || product.price; // Если у продукта есть discont_price, используем его, иначе используем price
+
+        if (state.priceFrom && state.priceTo) {
+          return (
+            discontPrice >= state.priceFrom && discontPrice <= state.priceTo
+          );
+        } else if (state.priceFrom) {
+          return discontPrice >= state.priceFrom;
+        } else if (state.priceTo) {
+          return discontPrice <= state.priceTo;
         }
-      }
-      state.currentProducts = state.products;
+
+        return true; // Возвращаем true, чтобы не производить фильтрацию по цене, если цены не заданы
+      });
+      state.productsBeforeSort = state.products;
     },
-    filterPriceTo: (state, action) => {
-      if (action.payload > 0) {
-        if (state.currentProducts.length > 0) {
-          state.products = state.currentProducts.filter(
-            (product) => product.discont_price <= action.payload
+    sortPrice: (state, action) => {
+      if (action.payload === 'default') {
+        state.products = state.productsBeforeSort;
+      } else if (action.payload === 'decrease') {
+        state.products = state.products
+          .slice()
+          .sort(
+            (a, b) =>
+              (b.discont_price || b.price) - (a.discont_price || a.price)
           );
-        } else {
-          state.products = state.allProducts.filter(
-            (product) => product.discont_price <= action.payload
+      } else if (action.payload === 'increase') {
+        state.products = state.products
+          .slice()
+          .sort(
+            (a, b) =>
+              (a.discont_price || a.price) - (b.discont_price || b.price)
           );
-          state.currentProducts = state.products;
-        }
       }
     },
   },
@@ -93,10 +103,6 @@ export const productsSlice = createSlice({
   },
 });
 
-export const {
-  setFilterDiscounted,
-  setRandomize,
-  filterPriceFrom,
-  filterPriceTo,
-} = productsSlice.actions;
+export const { setFilterDiscounted, setRandomize, filterPrice, sortPrice } =
+  productsSlice.actions;
 export default productsSlice.reducer;

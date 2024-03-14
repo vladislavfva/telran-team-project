@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import SalesPage from './pages/SalesPage';
 import HomePage from './pages/HomePage';
 import CategoriesPage from './pages/CategoriesPage';
+import AllProducts from './pages/AllProducts';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,10 @@ const router = createBrowserRouter([
         path: 'all-categories',
         element: <CategoriesPage />,
       },
-
+      {
+        path: 'all-products',
+        element: <AllProducts />,
+      },
       {
         path: 'all-sales',
         element: <SalesPage />,

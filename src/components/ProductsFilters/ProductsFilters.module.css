@@ -1,0 +1,50 @@
+.filters {
+  margin: var(--size-middle-plus) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-middle-plus);
+  align-items: center;
+}
+
+.filters input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.filters input, .select_wrapper select {
+  width: 112px;
+  height: 36px;
+  padding-left: 16px;
+  border-radius: var(--radius-small);
+  border: solid 1px var(--color-light-devider)
+}
+
+.inputs, .select_wrapper {
+  display: flex;
+  gap: var(--size-small);
+  align-items: center;
+}
+
+.select_wrapper select {
+  width: 200px;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('../../assets/iconComponents/dropdown-arrow.svg');
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: center;
+}
+
+@media screen and (max-width: 1439px) {
+  .filters {
+    margin: var(--size-middle) 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .filters {
+    margin: 24px 0;
+    gap: var(--size-small);
+  }
+}
