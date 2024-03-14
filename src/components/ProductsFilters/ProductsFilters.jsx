@@ -1,7 +1,7 @@
 import classes from './ProductsFilters.module.css'
 
 import { useDispatch } from "react-redux";
-import { filterPrice, sortPrice } from '../../store/slices/productsSlice'
+import { displayDiscounted, filterPrice, sortPrice } from '../../store/slices/productsSlice'
 
 function ProductsFilters() {
   const currentPage = window.location.pathname;
@@ -16,6 +16,10 @@ function ProductsFilters() {
     dispatch(sortPrice(sort))
   }
 
+  const handleDiscount = (value) => {
+    dispatch(displayDiscounted(value))
+  }
+
   return (
     <div className={classes.filters}>
       <div className={classes.inputs}>
@@ -27,7 +31,7 @@ function ProductsFilters() {
         <div className={classes.inputs}>
           <p>Discounted items</p>
           <div className={classes.checkbox}>
-            <input id='checbox' type="checkbox"/>
+            <input id='checbox' type="checkbox" onChange={(e) => handleDiscount(e.target.checked)}/>
             <label htmlFor='checkbox' className={classes.custom_checkbox}></label>
           </div>
         </div>

@@ -30,6 +30,15 @@ export const productsSlice = createSlice({
     setFilterDiscounted: (state, action) => {
       state.filterDiscounted = action.payload;
     },
+    displayDiscounted: (state, action) => {
+      if (action.payload) {
+        state.products = state.products.filter(
+          (product) => product.discont_price > 0
+        );
+      } else {
+        state.products = state.allProducts;
+      }
+    },
     setRandomize: (state, action) => {
       state.randomize = action.payload;
     },
@@ -103,6 +112,11 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { setFilterDiscounted, setRandomize, filterPrice, sortPrice } =
-  productsSlice.actions;
+export const {
+  setFilterDiscounted,
+  displayDiscounted,
+  setRandomize,
+  filterPrice,
+  sortPrice,
+} = productsSlice.actions;
 export default productsSlice.reducer;
