@@ -4,7 +4,6 @@ import { CategoriesList } from "../components/CategoriesList/CategoriesList";
 const CategoriesPage = () => {
   return (
     <>
-      <p></p>
       <CategoriesList/>
     </>
   );

@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Categories } from "../Categories/Categories";
 import { useEffect } from "react";
-import { getCategories } from "../../store/slice/categoriesSlice";
 import classes from './CategoriesList.module.css'
+import { getCategories } from "../../store/slices/categoriesSlice";
 
 export function CategoriesList({sliceStart, sliceEnd}) {
   const dispatch = useDispatch();

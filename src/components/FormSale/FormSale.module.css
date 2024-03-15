@@ -1,81 +1,92 @@
-.form_sale__container {
-  background: linear-gradient(
-    to right,
-    rgba(135, 147, 61, 1),
-    rgba(85, 97, 11, 1)
-  );
+.form_block {
+  position: relative;
+  background: linear-gradient(37deg, #87933d 0%, #55610b 100%);
   border-radius: var(--radius-big);
-  border: none;
-  width: 100%;
-  max-width: 1360px;
-  padding: 32px 32px 0px 32px;
-}
-
-.paragraf_sale {
+  padding: 32px;
+  color: #ffffff;
   text-align: center;
-  font-size: 64px;
-  color: rgba(255, 255, 255, 1);
+  overflow: hidden;
 }
 
-.inside_img {
-  width: 50%;
-  max-width: 748px;
-  max-height: 360px;
+.form_wrapper {
+  display: flex;
+  justify-content: end;
+  align-items: flex-end
 }
 
-.inside_block__inputs {
+.form_block form {
+  width: 516px;
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  width: 50%;
-  max-width: 516px;
-  gap: 32px;
-  margin-bottom: 32px;
+  gap: 16px;
+  margin-top: 80px;
+  margin-left: auto;
+  flex-shrink: 0;
 }
 
-.inside_block__input__name {
-  background: rgba(0, 0, 0, 0);
-  border: 1px solid rgba(255, 255, 241, 1);
-  border-radius: var(--radius-small);
-  padding: 16px, 32px, 16px, 32px;
-  width: 100%;
-  height: 58px;
-  gap: 10px;
-  color: rgba(255, 255, 241, 1);
-}
-
-/* div > input {
-} */
-
-.sale_button {
-  border-radius: var(--radius-small);
-  border: none;
-  padding: 16px, 32px, 16px, 32px;
-  width: 516px;
-  height: 58px;
-  gap: 10px;
-}
-
-.inside_block {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--size-middle);
-  margin: var(--size-middle-plus) 0 var(--size-middle) 0;
-  font-style: normal;
-  max-width: 1296px;
-  max-height: 360px;
-  gap: 32px;
-}
-
-input {
-  height: 58px;
+.form_block input {
   border-radius: var(--radius-small);
   border: solid 1px var(--color-background);
   background: transparent;
-  padding-left: var(--size-middle);
+  padding: 16px 32px;
+  color: var(--color-background);
+  font-size: 20px;
+}
+
+.form_block input::placeholder {
   color: var(--color-background);
 }
 
-input::placeholder {
-  color: var(--color-background);
+.form_block form button {
+  background: var(--color-background);
+  border: none;
+  border-radius: var(--radius-small);
+  padding: 16px 32px;
+  font-size: 20px;
+}
+
+.form_block  img {
+  height: 360px;
+  margin-bottom: -32px;
+}
+
+@media screen and (max-width: 1439px) {
+  .form_block form {
+    width: 450px;
+    margin-top: 25px;
+  }
+
+  .form_block  img {
+    height: 310px;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .form_block form {
+    width: 335px;
+  }
+  .form_block {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .form_wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .form_block form {
+    width: 100%;
+  }
+
+  .form_block  img {
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .form_block input, form button {
+    font-size: 18px;
+  }
 }
