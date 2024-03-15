@@ -14,7 +14,7 @@
   align-items: flex-end
 }
 
-form {
+.form_block form {
   width: 516px;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@ form {
   flex-shrink: 0;
 }
 
-input {
+.form_block input {
   border-radius: var(--radius-small);
   border: solid 1px var(--color-background);
   background: transparent;
@@ -33,11 +33,11 @@ input {
   font-size: 20px;
 }
 
-input::placeholder {
+.form_block input::placeholder {
   color: var(--color-background);
 }
 
-form button {
+.form_block form button {
   background: var(--color-background);
   border: none;
   border-radius: var(--radius-small);
@@ -51,7 +51,7 @@ form button {
 }
 
 @media screen and (max-width: 1439px) {
-  form {
+  .form_block form {
     width: 450px;
     margin-top: 25px;
   }
@@ -62,7 +62,7 @@ form button {
 }
 
 @media screen and (max-width: 999px) {
-  form {
+  .form_block form {
     width: 335px;
   }
   .form_block {
@@ -75,7 +75,7 @@ form button {
     flex-direction: column-reverse;
   }
 
-  form {
+  .form_block form {
     width: 100%;
   }
 
@@ -86,7 +86,7 @@ form button {
     margin-right: auto;
   }
 
-  input, form button {
+  .form_block input, form button {
     font-size: 18px;
   }
 }

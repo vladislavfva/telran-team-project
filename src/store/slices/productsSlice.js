@@ -4,8 +4,10 @@ const initialState = {
   products: [],
   allProducts: [],
   productsBeforeSort: [],
+  currentProducts: [],
   priceFrom: 0,
   priceTo: 0,
+  discounted: false,
   filterDiscounted: false,
   randomize: false,
 };
@@ -22,6 +24,45 @@ export const getProducts = createAsyncThunk(
   }
 );
 
+const filterProducts = (products, priceFrom, priceTo) => {
+  return products.filter((product) => {
+    const discontPrice = product.discont_price || product.price;
+    if (priceFrom && priceTo) {
+      return discontPrice >= priceFrom && discontPrice <= priceTo;
+    } else if (priceFrom) {
+      return discontPrice >= priceFrom;
+    } else if (priceTo) {
+      return discontPrice <= priceTo;
+    }
+    return true;
+  });
+};
+
+const sortProducts = (products, sortBy) => {
+  switch (sortBy) {
+    case 'default':
+      return products;
+    case 'decrease':
+      return products
+        .slice()
+        .sort(
+          (a, b) => (b.discont_price || b.price) - (a.discont_price || a.price)
+        );
+    case 'increase':
+      return products
+        .slice()
+        .sort(
+          (a, b) => (a.discont_price || a.price) - (b.discont_price || b.price)
+        );
+    default:
+      return products;
+  }
+};
+
+const filterDiscountedProducts = (products) => {
+  return products.filter((product) => product.discont_price > 0);
+};
+
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
@@ -30,60 +71,40 @@ export const productsSlice = createSlice({
       state.filterDiscounted = action.payload;
     },
     displayDiscounted: (state, action) => {
-      if (action.payload) {
-        state.products = state.products.filter(
-          (product) => product.discont_price > 0
-        );
+      action.payload ? (state.discounted = true) : (state.discounted = false);
+      if (state.discounted) {
+        state.currentProducts = state.products;
+        state.products = filterDiscountedProducts(state.products);
       } else {
-        state.products = state.allProducts;
+        state.products = state.currentProducts; //curentProducts
       }
+      state.products = sortProducts(state.products, state.sortBy);
+      /* state.products = filterProducts(
+        state.currentProducts,
+        state.priceFrom,
+        state.priceTo
+      ); */
     },
     setRandomize: (state, action) => {
       state.randomize = action.payload;
     },
     filterPrice: (state, action) => {
       const [priceFrom, priceTo] = action.payload;
-
-      // Устанавливаем значения цен, если они не равны undefined
       state.priceFrom = priceFrom !== undefined ? priceFrom : state.priceFrom;
       state.priceTo = priceTo !== undefined ? priceTo : state.priceTo;
-
-      // Фильтрация продуктов по цене
-      state.products = state.allProducts.filter((product) => {
-        const discontPrice = product.discont_price || product.price; // Если у продукта есть discont_price, используем его, иначе используем price
-
-        if (state.priceFrom && state.priceTo) {
-          return (
-            discontPrice >= state.priceFrom && discontPrice <= state.priceTo
-          );
-        } else if (state.priceFrom) {
-          return discontPrice >= state.priceFrom;
-        } else if (state.priceTo) {
-          return discontPrice <= state.priceTo;
-        }
-
-        return true; // Возвращаем true, чтобы не производить фильтрацию по цене, если цены не заданы
-      });
-      state.productsBeforeSort = state.products;
+      state.products = filterProducts(
+        state.allProducts,
+        state.priceFrom,
+        state.priceTo
+      );
+      state.products = sortProducts(state.products, state.sortBy);
+      if (state.discounted) {
+        state.products = filterDiscountedProducts(state.products);
+      }
     },
     sortPrice: (state, action) => {
-      if (action.payload === 'default') {
-        state.products = state.productsBeforeSort;
-      } else if (action.payload === 'decrease') {
-        state.products = state.products
-          .slice()
-          .sort(
-            (a, b) =>
-              (b.discont_price || b.price) - (a.discont_price || a.price)
-          );
-      } else if (action.payload === 'increase') {
-        state.products = state.products
-          .slice()
-          .sort(
-            (a, b) =>
-              (a.discont_price || a.price) - (b.discont_price || b.price)
-          );
-      }
+      state.sortBy = action.payload;
+      state.products = sortProducts(state.products, state.sortBy);
     },
   },
   extraReducers: (builder) => {
@@ -105,6 +126,9 @@ export const productsSlice = createSlice({
             .sort(() => Math.random() - 0.5)
             .slice(0, 4);
         }
+        /* if (state.Категория) {
+          делать фильтрацию по категории
+        } */
       })
       .addCase(getProducts.pending, () => console.log('pending'))
       .addCase(getProducts.rejected, () => console.log('rejected'));
