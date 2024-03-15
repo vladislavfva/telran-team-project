@@ -8,20 +8,20 @@ const CategoriesRender = () => {
   const end = 4;
 
   return (
-    <main className={classes.container}>
+    <div className="section">
       <div className={classes.top_container}>
         <h2>Catiegories</h2>
         <div className={classes.container_line}>
           <div className={classes.line}></div>
-          <div className={classes.container_all__categories}>
-            <Link className={classes.link}>All categories</Link>
-          </div>
+          <Link className={classes.link}>All categories</Link>
         </div>
       </div>
-      
-        <CategoriesList sliceStart={start} sliceEnd={end} />
 
-    </main>
+      <CategoriesList sliceStart={start} sliceEnd={end} />
+      <Link to="/all-categories" className={`${classes.link} ${classes.mobile}`}>
+        All categories
+      </Link>
+    </div>
   );
 };
 
