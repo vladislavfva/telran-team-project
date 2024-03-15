@@ -9,6 +9,7 @@ import SalesPage from './pages/SalesPage';
 import HomePage from './pages/HomePage';
 import CategoriesPage from './pages/CategoriesPage';
 import AllProducts from './pages/AllProducts';
+import ProductPage from './pages/ProductPage';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: 'all-sales',
         element: <SalesPage />,
+      },
+      {
+        path: 'product/:id',
+        element: <ProductPage />,
       },
     ],
   },
