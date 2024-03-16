@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   categories: [],
+  allCategories: [],
 };
 
 export const getCategories = createAsyncThunk(
