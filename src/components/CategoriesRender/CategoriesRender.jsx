@@ -13,7 +13,7 @@ const CategoriesRender = () => {
         <h2>Categories</h2>
         <div className={classes.container_line}>
           <div className={classes.line}></div>
-          <Link className={classes.link}>All categories</Link>
+          <Link to={'/categories'} className={classes.link}>All categories</Link>
         </div>
       </div>
 

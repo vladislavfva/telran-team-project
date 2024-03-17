@@ -4,7 +4,7 @@ import { AllCategories } from "../components/AllCategories/AllCategories";
 const CategoriesPage = () => {
   return (
     <>
-      <AllCategories/>
+      <AllCategories />
     </>
   );
 };

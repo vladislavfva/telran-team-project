@@ -10,7 +10,9 @@ import HomePage from "./pages/HomePage";
 import CategoriesPage from "./pages/CategoriesPage";
 import AllProducts from "./pages/AllProducts";
 import ProductPage from "./pages/ProductPage";
+import { AnnualsPage } from './pages/AnnualsPage';
 import { AllCategories } from "./components/AllCategories/AllCategories";
+
 
 const router = createBrowserRouter([
   {
@@ -25,10 +27,10 @@ const router = createBrowserRouter([
         path: "categories",
         element: <CategoriesPage />,
       },
-      // {
-      //   path: "all-categories",
-      //   element: <AllCategories />,
-      // },
+      {
+        path: "by-categories",
+        element: <AnnualsPage />,
+      },
       {
         path: "all-products",
         element: <AllProducts />,
