@@ -20,19 +20,19 @@ export const AllCategories = ({categories, product}) => {
   const productList = useSelector((state) => state.product.products);
   
 
-  // const categoryId = productList[4].categoryId
+ 
 
   // console.log(categoryId);
 
   return (
-    <Link to={'/by-categories'}>
+    <>
       <h2 className={classes.text}>All Categories</h2>
       <div className={classes.all_categories_container}>
         {categoriesList.map((categories) => (
           <Categories key={categories.id} categories={categories} />
         ))}
       </div>
-    </Link>
+    </>
   );
 };
 
