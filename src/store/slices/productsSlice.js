@@ -10,6 +10,7 @@ const initialState = {
   discounted: false,
   filterDiscounted: false,
   randomize: false,
+  loaded: false,
 };
 
 export const getProducts = createAsyncThunk(
@@ -106,12 +107,20 @@ export const productsSlice = createSlice({
       state.sortBy = action.payload;
       state.products = sortProducts(state.products, state.sortBy);
     },
+    productById: (state, action) => {
+      if (state.products.length > 0) {
+        state.products = state.products.filter(
+      (product) => product.categoryId == +action.payload
+    )
+
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.fulfilled, (state, action) => {
         state.allProducts = state.products;
-
+        state.loaded = true;
         if (state.filterDiscounted) {
           state.products = action.payload.filter(
             (product) => product.discont_price > 0
@@ -126,9 +135,7 @@ export const productsSlice = createSlice({
             .sort(() => Math.random() - 0.5)
             .slice(0, 4);
         }
-        /* if (state.Категория) {
-          делать фильтрацию по категории
-        } */
+       
       })
       .addCase(getProducts.pending, () => console.log('pending'))
       .addCase(getProducts.rejected, () => console.log('rejected'));
@@ -141,5 +148,6 @@ export const {
   setRandomize,
   filterPrice,
   sortPrice,
+  productById,
 } = productsSlice.actions;
 export default productsSlice.reducer;
