@@ -3,14 +3,15 @@ import classes from "./Categories.module.css";
 import { Link } from 'react-router-dom';
 
 export const Categories = ({ categories}) => {
-  // console.log(categories.id);
   return (
-    <Link to={`/categories/${categories.id}`} className={classes.info_container}>
+    <Link
+      to={`/categories/${categories.id}`}
+      className={classes.info_container}>
           <img
             src={process.env.REACT_APP_BACKEND_BASE_URL + categories.image}
             alt={categories.title}
           /> 
-          <p>{categories.title}</p>
+      <p>{categories.title}</p>
         </Link>
    
   );

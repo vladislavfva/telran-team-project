@@ -57,6 +57,10 @@
   text-decoration-line: underline;
 }
 
+.nav_element__style:focus {
+  color: var(--color-accent);
+}
+
 .icon_container {
   display: flex;
   gap: 10px;
@@ -160,13 +164,13 @@
     top: 0;
     right: -300px;
     overflow: hidden;
-    transition: right 200ms ease-in-out 300ms;
+    transition: right 0.5s;
   }
 
   /* add .active style to make the burger-menu appear(zjavlatusia) when you click the button */
   .central_container__nav.active {
     right: 0;
-    transition: right 200ms ease-in-out 0ms;
+    transition: right 0.5s;
     z-index: 999;
   }
 

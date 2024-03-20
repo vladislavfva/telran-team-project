@@ -108,10 +108,9 @@ export const productsSlice = createSlice({
       state.products = sortProducts(state.products, state.sortBy);
     },
     productById: (state, action) => {
-      if (state.allProducts.length > 0) {
-        console.log('hello');
-        state.products = state.allProducts.filter(
-      (product) => product.categoryId === action.payload
+      if (state.products.length > 0) {
+        state.products = state.products.filter(
+      (product) => product.categoryId == +action.payload
     )
 
       }
@@ -136,11 +135,6 @@ export const productsSlice = createSlice({
             .sort(() => Math.random() - 0.5)
             .slice(0, 4);
         }
-        // if (state.categoryId) {
-        //   state.products = state.products.filter(
-        //     (product) => product.categoryId
-        //   )
-        // };
        
       })
       .addCase(getProducts.pending, () => console.log('pending'))

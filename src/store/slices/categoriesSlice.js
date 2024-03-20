@@ -28,9 +28,7 @@ export const getCategories = createAsyncThunk(
 const categoriesSlise = createSlice({
   name: "categories",
   initialState,
-  // reducers: {
-  //   setCategories: (state, action) => {state.categories = action.payload},
-  // },
+  // reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getCategories.fulfilled, (state, action) => {
@@ -42,5 +40,5 @@ const categoriesSlise = createSlice({
   },
 });
 
-export const { setCategories } = categoriesSlise.actions;
+export const { setCategories} = categoriesSlise.actions;
 export default categoriesSlise.reducer;
