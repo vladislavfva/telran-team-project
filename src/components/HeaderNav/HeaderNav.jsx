@@ -40,28 +40,34 @@ export const HeaderNav = () => {
         <nav className={classes.nav_container}>
           <ul>
             <li>
-              <NavLink className={classes.nav_element__style}>
+              <NavLink to={"/"} className={classes.nav_element__style}>
                 Main Page
               </NavLink>
             </li>
           </ul>
           <ul>
             <li>
-              <NavLink className={classes.nav_element__style}>
+              <NavLink
+                to={"/categories"}
+                className={classes.nav_element__style}
+              >
                 Categories
               </NavLink>
             </li>
           </ul>
           <ul>
             <li>
-              <NavLink className={classes.nav_element__style}>
+              <NavLink
+                to={"/all-products"}
+                className={classes.nav_element__style}
+              >
                 All products
               </NavLink>
             </li>
           </ul>
           <ul>
             <li>
-              <NavLink className={classes.nav_element__style}>
+              <NavLink to={"/all-sales"} className={classes.nav_element__style}>
                 All sales
               </NavLink>
             </li>

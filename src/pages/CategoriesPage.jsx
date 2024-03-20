@@ -1,10 +1,10 @@
 import React from "react";
-import { CategoriesList } from "../components/CategoriesList/CategoriesList";
+import { AllCategories } from "../components/AllCategories/AllCategories";
 
 const CategoriesPage = () => {
   return (
     <>
-      <CategoriesList/>
+      <AllCategories />
     </>
   );
 };
