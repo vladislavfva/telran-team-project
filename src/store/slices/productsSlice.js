@@ -77,14 +77,9 @@ export const productsSlice = createSlice({
         state.currentProducts = state.products;
         state.products = filterDiscountedProducts(state.products);
       } else {
-        state.products = state.currentProducts; //curentProducts
+        state.products = state.currentProducts;
       }
       state.products = sortProducts(state.products, state.sortBy);
-      /* state.products = filterProducts(
-        state.currentProducts,
-        state.priceFrom,
-        state.priceTo
-      ); */
     },
     setRandomize: (state, action) => {
       state.randomize = action.payload;
@@ -110,9 +105,8 @@ export const productsSlice = createSlice({
     productById: (state, action) => {
       if (state.products.length > 0) {
         state.products = state.products.filter(
-      (product) => product.categoryId == +action.payload
-    )
-
+          (product) => product.categoryId == +action.payload
+        );
       }
     },
   },
@@ -135,7 +129,6 @@ export const productsSlice = createSlice({
             .sort(() => Math.random() - 0.5)
             .slice(0, 4);
         }
-       
       })
       .addCase(getProducts.pending, () => console.log('pending'))
       .addCase(getProducts.rejected, () => console.log('rejected'));
