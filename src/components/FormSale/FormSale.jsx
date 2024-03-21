@@ -14,10 +14,20 @@ function FormSale() {
     <div className={classes.form_wrapper}>
       <img src={gardenToolsImage} alt="garden tools" />
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="text" placeholder="Name" {...register("name")}/>
-        {errors.name && (<p>{errors.name.message}</p>)}
-        <input type="text" placeholder="Phone number"/>
-        {errors.phone && (<p>{errors.phone.message}</p>)}
+        <input type="text" placeholder="Name" {...register("name", {
+          pattern: {
+            value: /^[a-zA-Z]+$/i,
+            message: 'Please enter valid real name!'
+          }
+        })}/>
+        {errors.name && (<p className={classes.error}>{errors.name.message}</p>)}
+        <input type="text" placeholder="Phone number" {...register("phone", {
+          pattern: {
+            value: /^\+49\d{10}$/,
+            message: 'Please enter valid german phone number!'
+          }
+        })}/>
+        {errors.phone && (<p className={classes.error}>{errors.phone.message}</p>)}
         <input type="text" placeholder="Email" {...register("email", {
           pattern: {
             value: /^\S+@\S+\.\S+$/,
