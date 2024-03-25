@@ -16,6 +16,10 @@
   align-items: center;
 } */
 
+.svgCactus{
+  width: 300px
+}
+
 .container_text h2 {
   margin-bottom: 20px;
 }
