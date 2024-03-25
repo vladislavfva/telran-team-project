@@ -1,0 +1,159 @@
+.cart_form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cart_form input {
+  background: #ffffff;
+  border: solid 1px var(--color-light-devider);
+  border-radius: var(--radius-small);
+  padding: 16px 32px;
+  color: var(--color-text-grey);
+  font-size: 20px;
+}
+
+.cart_form input::placeholder {
+  color: var(--color-text-grey);
+}
+
+.cart_form button {
+  background: var(--color-accent);
+  margin-top: 16px;
+  padding: 16px 32px;
+  font-size: 20px;
+  border: none;
+  border-radius: var(--radius-small);
+  color: #ffffff;
+}
+
+.error {
+  text-align: start;
+  font-size: var(--size-small);
+}
+
+.order_info {
+  padding: var(--size-middle);
+  background: var(--color-light-grey);
+  border-radius: var(--radius-big);
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 44px;
+  margin-bottom: 24px;
+}
+
+.count, .total {
+  font-size: 40px;
+  line-height: 52px;
+  color: var(--color-text-grey);
+}
+
+.total_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 32px;
+}
+
+.total_price {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 70px;
+}
+
+@media screen and (max-width: 1439px) {
+  .cart_form form {
+    gap: 12px;
+  }
+
+  .cart_form input {
+    padding: 16px 20px;
+  }
+
+  .cart_form button {
+    margin-top: 8px;
+  }
+
+  .order_info {
+    padding: var(--size-middle) var(--size-small-plus);
+  }
+
+  .title {
+    margin-bottom: 12px;
+  }
+
+  .total_wrapper {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .cart_form form {
+    align-content: start;
+  }
+
+  .cart_form button {
+    width: 170px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 35px;
+  }
+
+  .count, .total {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .total_price {
+    font-size: 56px;
+    line-height: 62px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cart_form input {
+    padding: 12px 20px;
+    font-size: 18px;
+  }
+  
+  .error {
+    font-size: 14px;
+  }
+
+  .cart_form button {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 18px;
+  }
+
+  .order_info {
+    padding: 24px var(--size-small-plus);
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 31px;
+  }
+
+  .count, .total {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .total_price {
+    font-size: 48px;
+    line-height: 53px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .total_price {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}

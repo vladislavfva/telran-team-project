@@ -95,6 +95,26 @@
   background-color: var(--color-text);
   border-radius: var(--radius-small);
 }
+.cart_wrapper {
+  position: relative;
+}
+
+.cart_amount {
+  position: absolute;
+  top: 6.5px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background: var(--color-accent);
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 10px;
+}
 
 @media screen and (max-width: 1439px) {
   .logo {
@@ -298,6 +318,15 @@
 
   .span_bevelled__botton {
     top: 13px;
+  }
+  
+  .cart_amount {
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    font-size: 8px;
+    font-weight: 600;
+    line-height: 7.2px;
   }
 }
 

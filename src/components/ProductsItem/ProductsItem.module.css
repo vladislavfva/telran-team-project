@@ -51,6 +51,18 @@
   background: var(--color-discount);
   border-radius: var(--radius-small);
 }
+.product_actions {
+  position: absolute;
+  top: var(--size-small);
+  right: var(--size-small);
+
+}
+
+.add_to_cart {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 1439px) {
   .product_card img {
