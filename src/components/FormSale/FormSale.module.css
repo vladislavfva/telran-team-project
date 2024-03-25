@@ -50,6 +50,11 @@
   margin-bottom: -32px;
 }
 
+.error {
+  text-align: start;
+  font-size: var(--size-small);
+}
+
 @media screen and (max-width: 1439px) {
   .form_block form {
     width: 450px;
@@ -88,5 +93,9 @@
 
   .form_block input, form button {
     font-size: 18px;
+  }
+
+  .error {
+    font-size: 14px;
   }
 }
