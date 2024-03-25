@@ -13,6 +13,8 @@ import ProductPage from './pages/ProductPage';
 import { ProductByCategory } from './pages/ProductByCategory';
 import { AllCategories } from './components/AllCategories/AllCategories';
 import CartPage from './pages/CartPage';
+import NotFoundPage from "./pages/NotFoundPage";
+
 
 const router = createBrowserRouter([
   {
@@ -24,13 +26,16 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
+        path: '*',
+        element: <NotFoundPage/>
+      },
+      {
         path: 'categories',
         element: <CategoriesPage />,
       },
       {
         path: 'categories/:id',
         element: <ProductByCategory />,
-        title: 'title',
       },
       {
         path: 'all-products',

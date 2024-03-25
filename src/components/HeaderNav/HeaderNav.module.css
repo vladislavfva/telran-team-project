@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-between;
   background: var(--color-background);
+  border-bottom: 2px solid var(--color-light-devider);
 }
 
 .logo_container {
