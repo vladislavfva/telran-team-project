@@ -6,8 +6,19 @@ import { SvgBascket } from "../../assets/iconComponents/SvgBascket";
 import logo from "../../assets/iconComponents/logo.svg";
 import { SvgModeMoon } from "../../assets/iconComponents/SvgModeMoon";
 import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { useEffect } from 'react';
+import { calculateTotals } from "../../store/slices/cartSlice";
 
 export const HeaderNav = () => {
+  const dispatch = useDispatch();
+  const { cart, amount } = useSelector(state => state.cart);
+
+  useEffect(() => {
+    dispatch(calculateTotals());
+  }, [cart])
+
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
 
  const handleClickToggle = () => {
@@ -80,7 +91,10 @@ export const HeaderNav = () => {
       <div className={classes.container_icon__menu}>
         <div className={classes.icon_container}>
           <SvgHeart />
-          <SvgBascket />
+          <Link className={classes.cart_wrapper} to="/cart">
+            <p className={classes.cart_amount}>{amount}</p>
+            <SvgBascket />
+          </Link>
         </div>
 
         <button className={classes.menu_btn} onClick={handleClickToggle}>
