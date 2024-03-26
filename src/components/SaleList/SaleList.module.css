@@ -30,8 +30,8 @@
 .line {
   height: 1px;
   width: 100%;
-  background: var(--color-text-grey)
-};
+  background: var(--color-text-grey);
+}
 
 @media screen and (max-width: 767px) {
   .button {

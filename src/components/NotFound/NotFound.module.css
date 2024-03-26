@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  margin: 80px 0px;
+}
+
+/* .img {
+  width: 680px;
+  height: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.svgCactus{
+  width: 300px
+}
+
+.container_text h2 {
+  margin-bottom: 20px;
+}
+
+.container_text div {
+  margin-bottom: 20px;
+}
+
+.container_text button {
+  height: 58px;
+  width: 209px;
+  background: var(--color-accent);
+  color: var(--color-background);
+  border: none;
+  border-radius: var(--radius-small);
+  padding: 16px, 56px, 16px, 56px;
+  font-size: var(--size-small);
+}
+
+@media screen and (max-width: 999px) {
+  .svgFourLetter {
+    width: 160px;
+    height: 218px;
+  }
+
+  .svgCactus {
+    width: 267px;
+    height: 240px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .svgFourLetter {
+    width: 110px;
+    height: 150px;
+  }
+
+  .svgCactus {
+    width: 182px;
+    height: 163px;
+  }
+}
+
+@media screen and (max-width: 480px){
+    .svgFourLetter {
+    width: 79px;
+    height: 108px;
+  }
+
+  .svgCactus {
+    width: 132px;
+    height: 119px;
+  }
+}
+
+@media screen and (max-width: 350px){
+      .svgFourLetter {
+    width: 60px;
+    height: 100px;
+  }
+
+  .svgCactus {
+    width: 110px;
+    height: 100px;
+  }
+}

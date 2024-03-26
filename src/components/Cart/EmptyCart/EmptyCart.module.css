@@ -1,0 +1,29 @@
+.empty_cart {
+  margin-top: var(--size-middle-plus);
+  margin-bottom: var(--size-big);
+}
+
+.empty_cart button {
+  width: 310px;
+  padding: 16px;
+  margin-top: 32px;
+  border: none;
+  border-radius: var(--radius-small);
+  background: var(--color-accent);
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .empty_cart {
+    font-size: 18px;
+  }
+  
+  .empty_cart button {
+    width: 285px;
+    margin-top: 24px;
+    padding: 12px;
+    font-size: 18px;
+  }
+}
