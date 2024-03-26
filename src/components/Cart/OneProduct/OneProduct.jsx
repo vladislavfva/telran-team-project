@@ -1,13 +1,13 @@
 import classes from './OneProduct.module.css'
 import { useDispatch } from 'react-redux';
-import { decrease, increase, removeFromCart } from '../../../store/slices/cartSlice';
+import { addToCart, decrease, increase, removeFromCart } from '../../../store/slices/cartSlice';
 import { DecreaseIcon, RemoveIcon, IncreaseIcon } from './OneProductIcons';
 
 function OneProduct({product}) {
   const dispatch = useDispatch();
 
   const increaseCounter = () => {
-    dispatch(increase(product))
+    dispatch(addToCart({product}))
   }
 
   const decreaseCounter = () => {

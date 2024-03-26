@@ -36,6 +36,8 @@
   padding: var(--size-middle);
   background: var(--color-light-grey);
   border-radius: var(--radius-big);
+  position: sticky;
+  top: 16px;
 }
 
 .title {
