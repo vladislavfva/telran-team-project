@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    singleProduct: {}
+    singleProduct: []
 }
 
 export const getSingleProduct = createAsyncThunk(
@@ -12,7 +12,6 @@ export const getSingleProduct = createAsyncThunk(
     );
 
     const data = await res.json();
-    console.log(data);
     return data;
   }
 );
