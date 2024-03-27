@@ -3,13 +3,17 @@ import gardenToolsImage from '../../assets/images/form.png';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { sendSaleData } from '../../store/slices/sendSaleSlice';
+import { useState } from 'react';
 
 function FormSale() {
   const dispatch = useDispatch();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const onSubmit = (data) => {
     dispatch(sendSaleData(data));
+    setIsSubmitted(true);
+    reset();
   };
 
   return ( <div className={`${classes.form_block} section`}>
@@ -50,6 +54,7 @@ function FormSale() {
           }
         })}/>
         {errors.email && (<p className={classes.error}>{errors.email.message}</p>)}
+        {isSubmitted && <p>The discount has been successfully sent by email</p>}
         <button>Get a discount</button>
     </form>
     </div>
