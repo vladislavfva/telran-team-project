@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    cart: [],
+    cart: JSON.parse(localStorage.getItem('cart')) || [],
     total: 0,
     amount: 0,
   },
@@ -20,30 +20,30 @@ const cartSlice = createSlice({
           product: { ...product, amount: 1 },
         };
         state.cart.push(newItem);
-        console.log(JSON.parse(JSON.stringify(state.cart)));
       } else {
         // Если товар уже есть в корзине, увеличиваем его количество
         state.cart[index].product.amount++;
       }
+
+      localStorage.setItem('cart', JSON.stringify(state.cart));
     },
 
     removeFromCart: (state, action) => {
       const { product } = action.payload;
       state.cart = state.cart.filter((item) => item.product.id !== product.id);
       state.totalSum -= product.discount_price || product.price || 0;
-    },
-    increase: (state, action) => {
-      const cartItem = state.cart.find(
-        (item) => item.product.id === action.payload.id
-      );
-      cartItem.product.amount = cartItem.product.amount + 1;
+
+      localStorage.setItem('cart', JSON.stringify(state.cart));
     },
     decrease: (state, action) => {
       const cartItem = state.cart.find(
         (item) => item.product.id === action.payload.id
       );
       cartItem.product.amount = cartItem.product.amount - 1;
+
+      localStorage.setItem('cart', JSON.stringify(state.cart));
     },
+    // * можно удалить и делать в increase and decrease
     calculateTotals: (state) => {
       let amount = 0;
       let total = 0;

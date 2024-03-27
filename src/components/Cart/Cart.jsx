@@ -5,7 +5,6 @@ import EmptyCart from './EmptyCart/EmptyCart';
 import OneProduct from './OneProduct/OneProduct';
 import { useSelector } from 'react-redux';
 
-
 function Cart() {
   const cartItems = useSelector(state => state.cart.cart);
   let content;
