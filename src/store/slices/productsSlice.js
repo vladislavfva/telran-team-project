@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
+
 const initialState = {
   products: [],
   allProducts: [],
@@ -65,7 +66,7 @@ const filterDiscountedProducts = (products) => {
 };
 
 export const productsSlice = createSlice({
-  name: 'products',
+  name: "products",
   initialState,
   reducers: {
     setFilterDiscounted: (state, action) => {
@@ -130,10 +131,12 @@ export const productsSlice = createSlice({
             .slice(0, 4);
         }
       })
-      .addCase(getProducts.pending, () => console.log('pending'))
-      .addCase(getProducts.rejected, () => console.log('rejected'));
+      .addCase(getProducts.pending, () => console.log("pending"))
+      .addCase(getProducts.rejected, () => console.log("rejected"))
   },
 });
+
+
 
 export const {
   setFilterDiscounted,

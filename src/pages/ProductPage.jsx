@@ -1,5 +1,14 @@
+import SingleProduct from "../components/SingleProduct/SingleProduct";
+
 function ProductPage() {
-  return ( <div>Product</div> );
+
+
+  return (
+    <div>
+      <SingleProduct />
+
+    </div>
+  );
 }
 
 export default ProductPage;
