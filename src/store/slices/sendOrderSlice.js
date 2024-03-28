@@ -1,17 +1,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-export const sendSaleData = createAsyncThunk(
-  'sale/sendSaleData',
-  async (saleData, { rejectWithValue }) => {
+export const sendOrderData = createAsyncThunk(
+  'order/sendOrderData',
+  async (orderData, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        process.env.REACT_APP_BACKEND_BASE_URL + '/sale/send',
+        process.env.REACT_APP_BACKEND_BASE_URL + '/order/send',
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(saleData),
+          body: JSON.stringify(orderData),
         }
       );
 
@@ -28,8 +28,8 @@ export const sendSaleData = createAsyncThunk(
   }
 );
 
-const saleSlice = createSlice({
-  name: 'sale',
+const orderSlice = createSlice({
+  name: 'order',
   initialState: {
     loading: false,
     error: null,
@@ -39,18 +39,18 @@ const saleSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(sendSaleData.pending, (state) => {
+      .addCase(sendOrderData.pending, (state) => {
         state.loading = true;
         state.error = null;
         state.success = false;
       })
-      .addCase(sendSaleData.fulfilled, (state, action) => {
+      .addCase(sendOrderData.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.success = true;
         state.responseData = action.payload;
       })
-      .addCase(sendSaleData.rejected, (state, action) => {
+      .addCase(sendOrderData.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || 'An error occurred';
         state.success = false;
@@ -58,4 +58,4 @@ const saleSlice = createSlice({
   },
 });
 
-export default saleSlice;
+export default orderSlice;

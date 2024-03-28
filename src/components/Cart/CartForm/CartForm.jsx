@@ -1,17 +1,29 @@
 import classes from './CartForm.module.css'
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { sendOrderData } from '../../../store/slices/sendOrderSlice';
+import { useState } from 'react';
+import Popup from '../../Popup/Popup';
 
 function CartForm() {
-  const {total, amount, cart } = useSelector(state => state.cart)
-
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const dispatch = useDispatch();
+  const {total, amount } = useSelector(state => state.cart)
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const [isActive, setIsActive] = useState(false);
 
   const onSubmit = (data) => {
-    console.log(data)
+    reset();
+    dispatch(sendOrderData(data));
+    setIsActive(true);
+  };
+
+  const handePopupClose = () => {
+    setIsActive(false);
   }
 
   return ( <div className={classes.order_info}>
+    <Popup isActive={isActive} onClose={handePopupClose}/>
     <p className={classes.title}>Order details</p>
     <p className={classes.count}>{amount}</p>
     <div className={classes.total_wrapper}>
