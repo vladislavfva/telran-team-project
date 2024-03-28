@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useEffect } from 'react';
 import { calculateTotals } from "../../store/slices/cartSlice";
+import DiscountPopup from "../DiscountPopup/DiscountPopup";
 
 export const HeaderNav = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ export const HeaderNav = () => {
 
   return (
     <div className={classes.container}>
+      <DiscountPopup />
       <div className={classes.logo_container}>
         <img src={logo} alt="logo" className={classes.logo} />
         <div>

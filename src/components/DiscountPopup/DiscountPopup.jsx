@@ -1,6 +1,6 @@
 import CloseIcon from "./DiscountPopupIcons";
 
-function DiscountPopup() {
+function DiscountPopup({product}) {
   return ( <div>
     <div>
       <p>50% discount on product of the day!</p>
@@ -9,16 +9,16 @@ function DiscountPopup() {
         <p>{product.title}</p>
         {product.discont_price ? (
             <>
-              <p className={classes.price}>${product.discont_price}</p>
-              <p className={classes.discount_price}>${product.price}</p>
-              <div className={classes.discount}>
+              <p>${product.discont_price}</p>
+              <p>${product.price}</p>
+              <div>
                 {product.discont_price
                 ? '-' + Math.ceil(((product.price - product.discont_price) * 100) / product.price) + '%'
                 : ''}
         </div>
             </>
           ) : (
-            <p className={classes.price}>${product.price}</p>
+            <p>${product.price}</p>
         )}
       </div>
       <button>Add to cart</button>
