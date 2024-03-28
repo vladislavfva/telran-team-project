@@ -78,14 +78,9 @@ export const productsSlice = createSlice({
         state.currentProducts = state.products;
         state.products = filterDiscountedProducts(state.products);
       } else {
-        state.products = state.currentProducts; //curentProducts
+        state.products = state.currentProducts;
       }
       state.products = sortProducts(state.products, state.sortBy);
-      /* state.products = filterProducts(
-        state.currentProducts,
-        state.priceFrom,
-        state.priceTo
-      ); */
     },
     setRandomize: (state, action) => {
       state.randomize = action.payload;
