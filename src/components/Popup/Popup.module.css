@@ -10,6 +10,7 @@
   padding: 20px;
   background: rgba(40, 40, 40, 0.4);
   cursor: pointer;
+  z-index: 9999;
 }
 
 .popup_card {
@@ -39,7 +40,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .popup_card {
     gap: 20px;
     padding: 24px 20px;

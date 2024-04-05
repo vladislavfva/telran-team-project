@@ -10,24 +10,37 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useEffect } from 'react';
 import { calculateTotals } from "../../store/slices/cartSlice";
+import DiscountPopup from "../DiscountPopup/DiscountPopup";
+import { getSingleProduct } from "../../store/slices/singleProductSlice";
 
 export const HeaderNav = () => {
   const dispatch = useDispatch();
   const { cart, amount } = useSelector(state => state.cart);
+  const product = useSelector(state => state.singleProduct.singleProduct);
+  useEffect(() => {
+    dispatch(getSingleProduct(2))
+  }, [dispatch])
+
 
   useEffect(() => {
     dispatch(calculateTotals());
   }, [cart])
 
-  const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
+  const [burgerMenuOpen, setBurgerMenuOpen] = useState(false)
 
  const handleClickToggle = () => {
    setBurgerMenuOpen(!burgerMenuOpen);
  };
 
+  const [isActive, setIsActive] = useState(false);
+
+  const handlePopupClose = () => {
+    setIsActive(false);
+  }
 
   return (
     <div className={classes.container}>
+      <DiscountPopup isActive={isActive} onClose={handlePopupClose} product={product[0]}/>
       <div className={classes.logo_container}>
         <img src={logo} alt="logo" className={classes.logo} />
         <div>
@@ -40,7 +53,7 @@ export const HeaderNav = () => {
           burgerMenuOpen ? classes.active : ""
         }`}
       >
-        <button className={classes.btn}>1 day discount!</button>
+        <button onClick={() => setIsActive(true)} className={classes.btn}>1 day discount!</button>
         <button onClick={handleClickToggle} className={classes.cross_btn}>
           <div className={classes.cross}>
             <span className={classes.span_bevelled__top}></span>

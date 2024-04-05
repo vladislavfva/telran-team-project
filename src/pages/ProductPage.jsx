@@ -6,7 +6,6 @@ function ProductPage() {
   return (
     <div>
       <SingleProduct />
-
     </div>
   );
 }
