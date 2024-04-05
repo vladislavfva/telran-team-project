@@ -12,6 +12,20 @@
   gap: 15px;
 }
 
+.dark_mode__input {
+  visibility: hidden;
+}
+
+.dark_mode__input + .dark_mode__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 35px;
+  background: #afc905;
+  border-radius: 30px;
+}
+
 .central_container__nav {
   padding: 30px 0px 35px 0px;
 }
@@ -251,7 +265,7 @@
     top: 17px;
   }
 
-    .container {
+  .container {
     padding: 20px 0px 20px 0px;
   }
 
@@ -259,7 +273,6 @@
     width: 60px;
     height: 60px;
   }
-
 }
 
 @media screen and (max-width: 480px) {
@@ -301,27 +314,27 @@
   }
 }
 
-@media screen and (max-width: 350px){
-.logo_container{
-  gap: 5px;
-}
+@media screen and (max-width: 350px) {
+  .logo_container {
+    gap: 5px;
+  }
 
-.icon_container{
-  gap: 5px;
-  padding-bottom: 5px;
-}
- .container_icon__menu{
-  gap: 10px;
-  padding-bottom: 3px;
- }
+  .icon_container {
+    gap: 5px;
+    padding-bottom: 5px;
+  }
+  .container_icon__menu {
+    gap: 10px;
+    padding-bottom: 3px;
+  }
 
   .menu {
     width: 32px;
     height: 30px;
   }
 
-  .central_container__nav.active{
-   right: -15px;
+  .central_container__nav.active {
+    right: -15px;
   }
 
   .nav_container {
@@ -329,5 +342,4 @@
     margin-left: 30px;
     margin-top: 150px;
   }
-
 }

@@ -6,14 +6,15 @@ import { SvgBascket } from "../../assets/iconComponents/SvgBascket";
 import logo from "../../assets/iconComponents/logo.svg";
 import { SvgModeMoon } from "../../assets/iconComponents/SvgModeMoon";
 import { Link, NavLink } from "react-router-dom";
+import { SvgModeSun } from "../../assets/iconComponents/SvgModeSun";
+import { SvgMoonSun } from "../../assets/iconComponents/SvgMoonSun";
 
 export const HeaderNav = () => {
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
 
- const handleClickToggle = () => {
-   setBurgerMenuOpen(!burgerMenuOpen);
- };
-
+  const handleClickToggle = () => {
+    setBurgerMenuOpen(!burgerMenuOpen);
+  };
 
   return (
     <div className={classes.container}>
@@ -21,8 +22,19 @@ export const HeaderNav = () => {
         <Link to={"/"}>
           <img src={logo} alt="logo" className={classes.logo} />
         </Link>
-        <div>
-          <SvgModeMoon />
+        <div className={classes.dark_mode}>
+          {/* <SvgModeMoon /> */}
+          {/* <SvgModeSun/> */}
+          <input
+            className={classes.dark_mode__input}
+            type="checkbox"
+            id="darkmode-toggle"
+          />
+          <label className={classes.dark_mode__label} htmlFor="darkmode-toggle">
+            {/* <SvgModeMoon />
+            <SvgModeSun /> */}
+            <SvgMoonSun />
+          </label>
         </div>
       </div>
 

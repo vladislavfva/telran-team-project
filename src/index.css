@@ -11,7 +11,7 @@ body {
   font-size: 20px;
   font-weight: 500;
   color: var(--color-text);
-  background-color: var(--color-background);
+
 }
 
 h1, h2 {
@@ -55,11 +55,23 @@ img {
   --size-big: 80px;
 }
 
+[data-theme='dark'] {
+   --color-accent: #92A134;
+  --color-background: #424436;
+  --color-devider: #424436;
+  --color-light-grey: #424436;
+  --color-light-devider: #424436;
+  --color-text: #fffff1;
+  --color-text-grey: #fffff1;
+  --color-discount: #F26D22;
+}
+
 .container {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 var(--size-middle-plus);
+    background-color: var(--color-background);
 }
 
 .section {
