@@ -17,7 +17,7 @@
 
 .text_amazing__discounts {
   line-height: 105px;
-  color: var(--color-background);
+  color: var(--color-devider);
 }
 
 .button_check {
@@ -25,7 +25,7 @@
   height: 58px;
   width: 218px;
   background: var(--color-accent);
-  color: var(--color-background);
+  color: var(--color-devider);
   padding: 16px, 56px, 16px, 56px;
   border: none;
   border-radius: var(--radius-small);

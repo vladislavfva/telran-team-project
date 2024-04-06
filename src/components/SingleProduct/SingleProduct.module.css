@@ -20,6 +20,10 @@
   cursor: pointer;
 }
 
+h3{
+ color: var(--color-devider);
+}
+
 .popup {
   position: fixed;
   top: 0;
@@ -50,6 +54,10 @@
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+}
+
+h4{
+  color: var(--color-devider);
 }
 
 .container_prise {
@@ -99,7 +107,7 @@
   height: 58px;
   max-width: 350px;
   background: var(--color-accent);
-  color: var(--color-background);
+  color: var(--color-devider);
   border: none;
   border-radius: var(--radius-small);
   padding: 6px, 16px, 6px, 16px;
@@ -123,6 +131,7 @@
   padding: 6px 10px;
   text-decoration: underline;
   font-weight: bold;
+  color: var(--color-text-grey);
 }
 
 .btn_readMore:hover {

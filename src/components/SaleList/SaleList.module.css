@@ -7,6 +7,10 @@
   margin-bottom: var(--size-middle-plus);
 }
 
+.sale_info h2 {
+  color: var(--color-text);
+}
+
 .button_wrapper {
   width: 100%;
   display: flex;

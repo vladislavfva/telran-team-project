@@ -9,7 +9,7 @@ import { Link, NavLink } from "react-router-dom";
 import { SvgModeSun } from "../../assets/iconComponents/SvgModeSun";
 import { SvgMoonSun } from "../../assets/iconComponents/SvgMoonSun";
 
-export const HeaderNav = () => {
+export const HeaderNav = ({handleChange, isChecked}) => {
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
 
   const handleClickToggle = () => {
@@ -23,16 +23,14 @@ export const HeaderNav = () => {
           <img src={logo} alt="logo" className={classes.logo} />
         </Link>
         <div className={classes.dark_mode}>
-          {/* <SvgModeMoon /> */}
-          {/* <SvgModeSun/> */}
           <input
             className={classes.dark_mode__input}
             type="checkbox"
             id="darkmode-toggle"
+            onChange={handleChange}
+            checked={isChecked}
           />
           <label className={classes.dark_mode__label} htmlFor="darkmode-toggle">
-            {/* <SvgModeMoon />
-            <SvgModeSun /> */}
             <SvgMoonSun />
           </label>
         </div>

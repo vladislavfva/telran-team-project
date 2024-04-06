@@ -57,12 +57,12 @@ img {
 
 [data-theme='dark'] {
    --color-accent: #92A134;
-  --color-background: #424436;
-  --color-devider: #424436;
-  --color-light-grey: #424436;
-  --color-light-devider: #424436;
-  --color-text: #fffff1;
-  --color-text-grey: #fffff1;
+  --color-background: #303030;
+  --color-devider: #efefe9;
+  --color-light-grey: #2d2d30;
+  --color-light-devider: #f1f1e4;
+  --color-text: #ecece0;
+  --color-text-grey: #a3a3a3;
   --color-discount: #F26D22;
 }
 

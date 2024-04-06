@@ -1,3 +1,7 @@
+p{
+  color: var(--color-devider);
+}
+
 .filters {
   margin: var(--size-middle-plus) 0;
   display: flex;

@@ -9,6 +9,7 @@
 
 .top_container h2 {
   padding-top: 30px;
+  color: var(--color-text);
 }
 
 .container_line {
@@ -16,6 +17,7 @@
   display: flex;
   align-items: center;
   margin-top: 10px;
+
 }
 
 
@@ -36,7 +38,7 @@
 .line {
   height: 1px;
   width: 100%;
-  background: #dddddd;
+  background: var(--color-text-grey);
   margin-top: 40px;
 }
 

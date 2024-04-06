@@ -23,6 +23,7 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: var(--color-text);
 }
 
 .price {
