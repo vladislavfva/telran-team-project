@@ -5,11 +5,15 @@ import { SvgHeart } from "../../assets/iconComponents/SvgHeart";
 import { SvgBascket } from "../../assets/iconComponents/SvgBascket";
 import logo from "../../assets/iconComponents/logo.svg";
 import { SvgModeMoon } from "../../assets/iconComponents/SvgModeMoon";
+
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useEffect } from 'react';
 import { calculateTotals } from "../../store/slices/cartSlice";
+
+import { Link, NavLink } from "react-router-dom";
+
 
 export const HeaderNav = () => {
   const dispatch = useDispatch();
@@ -29,7 +33,9 @@ export const HeaderNav = () => {
   return (
     <div className={classes.container}>
       <div className={classes.logo_container}>
-        <img src={logo} alt="logo" className={classes.logo} />
+        <Link to={"/"}>
+          <img src={logo} alt="logo" className={classes.logo} />
+        </Link>
         <div>
           <SvgModeMoon />
         </div>
