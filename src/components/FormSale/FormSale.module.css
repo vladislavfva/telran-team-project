@@ -1,3 +1,7 @@
+h2{
+  color: var(--color-devider);
+}
+
 .form_block {
   position: relative;
   background: linear-gradient(37deg, #87933d 0%, #55610b 100%);
@@ -26,19 +30,19 @@
 
 .form_block input {
   border-radius: var(--radius-small);
-  border: solid 1px var(--color-background);
+  border: solid 1px var(--color-devider);
   background: transparent;
   padding: 16px 32px;
-  color: var(--color-background);
+  color: var(--color-devider);
   font-size: 20px;
 }
 
 .form_block input::placeholder {
-  color: var(--color-background);
+  color: var(--color-devider);
 }
 
 .form_block form button {
-  background: var(--color-background);
+  background: var(--color-devider);
   border: none;
   border-radius: var(--radius-small);
   padding: 16px 32px;

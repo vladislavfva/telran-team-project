@@ -10,11 +10,47 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+}
+
+.dark_mode{
+  display: flex;
+  justify-content: center;
+}
+
+.dark_mode__input {
+  visibility: hidden;
+}
+
+.dark_mode__input + .dark_mode__label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 35px;
+  background: var(--color-text);
+  border-radius: 30px;
+  position: relative;
+}
+
+.dark_mode__input + .dark_mode__label::after{
+  cursor: pointer;
+  content: '';
+  position: absolute;
+  left: 3px;
+  width: 32px;
+  height: 30px;
+  background-color: var(--color-background);
+  border-radius: 30px;
+  transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+}
+
+.dark_mode__input:checked + .dark_mode__label::after{
+ transform: translateX(100%);
 }
 
 .central_container__nav {
   padding: 30px 0px 35px 0px;
+  color: var(--color-text);
 }
 
 .btn {
@@ -23,7 +59,7 @@
   height: 30px;
   width: 150px;
   background: var(--color-accent);
-  color: var(--color-background);
+  color: var(--color-devider);
   border: none;
   border-radius: var(--radius-small);
   padding: 6px, 16px, 6px, 16px;
@@ -219,7 +255,7 @@
     height: 42px;
     width: 211px;
     background: var(--color-accent);
-    color: var(--color-background);
+    color: var(--color-devider);
     border: none;
     border-radius: var(--radius-small);
     padding: 6px, 16px, 6px, 16px;
@@ -272,7 +308,7 @@
     top: 17px;
   }
 
-    .container {
+  .container {
     padding: 20px 0px 20px 0px;
   }
 
@@ -280,7 +316,6 @@
     width: 60px;
     height: 60px;
   }
-
 }
 
 @media screen and (max-width: 480px) {
@@ -331,27 +366,27 @@
   }
 }
 
-@media screen and (max-width: 350px){
-.logo_container{
-  gap: 5px;
-}
+@media screen and (max-width: 350px) {
+  .logo_container {
+    gap: 5px;
+  }
 
-.icon_container{
-  gap: 5px;
-  padding-bottom: 5px;
-}
- .container_icon__menu{
-  gap: 10px;
-  padding-bottom: 3px;
- }
+  .icon_container {
+    gap: 5px;
+    padding-bottom: 5px;
+  }
+  .container_icon__menu {
+    gap: 10px;
+    padding-bottom: 3px;
+  }
 
   .menu {
     width: 32px;
     height: 30px;
   }
 
-  .central_container__nav.active{
-   right: -15px;
+  .central_container__nav.active {
+    right: -15px;
   }
 
   .nav_container {
@@ -359,5 +394,4 @@
     margin-left: 30px;
     margin-top: 150px;
   }
-
 }

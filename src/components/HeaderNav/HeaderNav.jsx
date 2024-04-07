@@ -4,7 +4,7 @@ import classes from "./HeaderNav.module.css";
 import { SvgHeart } from "../../assets/iconComponents/SvgHeart";
 import { SvgBascket } from "../../assets/iconComponents/SvgBascket";
 import logo from "../../assets/iconComponents/logo.svg";
-import { SvgModeMoon } from "../../assets/iconComponents/SvgModeMoon";
+
 
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,21 +14,23 @@ import { calculateTotals } from "../../store/slices/cartSlice";
 
 import { Link, NavLink } from "react-router-dom";
 
+import { SvgMoonSun } from "../../assets/iconComponents/SvgMoonSun";
 
-export const HeaderNav = () => {
-  const dispatch = useDispatch();
-  const { cart, amount } = useSelector(state => state.cart);
 
-  useEffect(() => {
-    dispatch(calculateTotals());
-  }, [cart])
+export const HeaderNav = ({handleChange, isChecked}) => {
 
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
 
- const handleClickToggle = () => {
-   setBurgerMenuOpen(!burgerMenuOpen);
- };
+   const dispatch = useDispatch();
+  const { cart, amount } = useSelector(state => state.cart);
 
+  const handleClickToggle = () => {
+    setBurgerMenuOpen(!burgerMenuOpen);
+  };
+
+    useEffect(() => {
+    dispatch(calculateTotals());
+  }, [cart])
 
   return (
     <div className={classes.container}>
@@ -36,8 +38,17 @@ export const HeaderNav = () => {
         <Link to={"/"}>
           <img src={logo} alt="logo" className={classes.logo} />
         </Link>
-        <div>
-          <SvgModeMoon />
+        <div className={classes.dark_mode}>
+          <input
+            className={classes.dark_mode__input}
+            type="checkbox"
+            id="darkmode-toggle"
+            onChange={handleChange}
+            checked={isChecked}
+          />
+          <label className={classes.dark_mode__label} htmlFor="darkmode-toggle">
+            <SvgMoonSun />
+          </label>
         </div>
       </div>
 
