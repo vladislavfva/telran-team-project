@@ -11,15 +11,7 @@ function ProductsItem({ product }) {
   const inCart = useSelector(state => state.cart.cart.some(item => item.product.id === product.id));
   const likedProduct = useSelector(state => state.liked.liked.some((item) => item.product.id === product.id))
 
-//   const handleToggleLiked = () => {
-//     if (product.amount === 1) {
-//       dispatch(remove({product}))
-//     } else {
-//       dispatch(addToLiked({ product }));
-//   }
-// }
   return (
-    
     <div className={classes.product_card}>
       <Link to={`/product/${product.id}`}>
         <div>
@@ -53,10 +45,15 @@ function ProductsItem({ product }) {
       <div className={classes.product_liked}>
         <button
           className={classes.add_to_liked}
-          onClick={handleToggleLiked}
-        
+          onClick={() => {
+            if (likedProduct ) {
+              dispatch(remove({ product }));
+            } else {
+              dispatch(addToLiked({ product }));
+            }
+          }}
         >
-          {likedProduct ? <LikedIcon isActive={true} /> : <LikedIcon/> }
+          {likedProduct ? <LikedIcon isActive={true} /> : <LikedIcon />}
         </button>
       </div>
       <div className={classes.product_actions}>

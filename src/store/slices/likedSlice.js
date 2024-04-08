@@ -4,7 +4,7 @@ const likedSlice = createSlice({
   name: "liked",
   initialState: {
     liked: JSON.parse(localStorage.getItem("liked")) || [],
-    amount: 0,
+    amountLike: 0,
   },
   reducers: {
     addToLiked: (state, action) => {
@@ -14,29 +14,33 @@ const likedSlice = createSlice({
       );
       if (index === -1) {
         const newProduct = {
-          product: { ...product, amount: 1 },
+          product: { ...product, amountLike: 1 },
         };
         state.liked.push(newProduct);
       } else {
-        state.liked[index].product.amount++;
+        state.liked[index].product.amountLike++;
       }
 
       localStorage.setItem("liked", JSON.stringify(state.liked));
     },
     remove: (state, action) => {
       const { product } = action.payload;
-      state.liked = state.liked.filter(
-        (item) => item.product.id !== product.id
+      const index = state.liked.findIndex(
+        (item) => item.product.id === product.id
       );
-
+      if (index !== -1) {
+        state.liked.splice(index, 1);
+      }
       localStorage.setItem("liked", JSON.stringify(state.liked));
     },
-    countLike: (state, action) => {
-      let amount = 0;
+    countLike: (state) => {
+      let amountLike = 0;
       state.liked.forEach((item) => {
-        amount += item.product.amount;
+        amountLike += item.product.amountLike;
+         
       });
-      state.amount = amount;
+      state.amountLike = amountLike;
+      
     },
   },
 });

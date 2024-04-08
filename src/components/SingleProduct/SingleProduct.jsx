@@ -69,7 +69,7 @@ function SingleProduct({product}) {
         <div className={classes.container_info}>
           <div className={classes.container_title}>
             <h3>{title}</h3>
-            <LikedIcon/>
+            <LikedIcon />
           </div>
 
           <div className={classes.container_prise}>
@@ -82,6 +82,17 @@ function SingleProduct({product}) {
             ) : (
               <h2 className={classes.price}>${price}</h2>
             )}
+
+            <div className={classes.discount}>
+              {product.discont_price
+                ? "-" +
+                  Math.ceil(
+                    ((product.price - product.discont_price) * 100) /
+                      product.price
+                  ) +
+                  "%"
+                : ""}
+            </div>
           </div>
 
           <div className={classes.container_addToCard}>
@@ -95,8 +106,12 @@ function SingleProduct({product}) {
               </button>
             </div>
 
-          
-            <button className={classes.btn_add} onClick={() => dispatch(addToCart({product}))}>Add to cart</button>
+            <button
+              className={classes.btn_add}
+              onClick={() => dispatch(addToCart({ product }))}
+            >
+              Add to cart
+            </button>
           </div>
 
           <div className={classes.container_text}>

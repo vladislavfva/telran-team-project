@@ -19,7 +19,7 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
 
   const dispatch = useDispatch();
   const { cart, amount } = useSelector((state) => state.cart);
-  const { liked, likedAmount } = useSelector((state) => state.liked);
+  const { liked, amountLike } = useSelector((state) => state.liked);
 
   const handleClickToggle = () => {
     setBurgerMenuOpen(!burgerMenuOpen);
@@ -68,7 +68,10 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
         <nav className={classes.nav_container}>
           <ul>
             <li>
-              <NavLink to={"/"} className={`${classes.nav_element__style} ${classes.main}`}>
+              <NavLink
+                to={"/"}
+                className={`${classes.nav_element__style} ${classes.main}`}
+              >
                 Main Page
               </NavLink>
             </li>
@@ -108,7 +111,8 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
       <div className={classes.container_icon__menu}>
         <div className={classes.icon_container}>
           <Link className={classes.liked_container} to="/favorite">
-            <p className={classes.liked_amount}>{amount}</p>
+                            {/* ? show NaN why ? I think likedSlise not right write*/}
+            <p className={classes.liked_amount}>{amountLike}</p>
             <SvgHeart />
           </Link>
           <Link className={classes.cart_wrapper} to="/cart">

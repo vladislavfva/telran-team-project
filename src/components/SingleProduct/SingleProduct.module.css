@@ -15,8 +15,8 @@
 
 .img {
   max-width: 700px;
-   border-radius: 10px;
-   border: solid 1px var(--color-text-grey);
+  border-radius: 10px;
+  border: solid 1px var(--color-text-grey);
 }
 
 .img:hover {
@@ -43,7 +43,7 @@ h3 {
 .popup_img {
   max-width: 80%;
   max-height: 80%;
-   border-radius: 10px;
+  border-radius: 10px;
 }
 
 .popup_img:hover {
@@ -80,8 +80,20 @@ h4 {
   color: var(--color-text-grey);
   text-decoration: line-through;
   position: absolute;
- left: 150px;
- top: 20px;
+  left: 140px;
+  top: 20px;
+}
+
+.discount {
+  position: absolute;
+  right: 200px;
+  top: 10px;
+  padding: 4px 8px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  background: var(--color-discount);
+  border-radius: var(--radius-small);
 }
 
 .container_addToCard {
@@ -114,7 +126,7 @@ h4 {
   border-left: solid 1px var(--color-light-devider);
   border-right: solid 1px var(--color-light-devider);
   border-radius: var(--radius-small);
-   background: transparent;
+  background: transparent;
   border: none;
   cursor: pointer;
 }
@@ -216,6 +228,12 @@ h4 {
 
   .img {
     width: 210px;
+  }
+
+  .not_current__price {
+    font-size: 30px;
+    left: 110px;
+    top: 20px;
   }
 }
 
