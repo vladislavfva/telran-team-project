@@ -87,3 +87,13 @@
 //         <h4>{title}</h4>
 //         <p className={classes.description}>{description}</p>
 //       </div>
+
+
+
+ {
+   likedProduct.length === 0 ? (
+     <p>Go see some products!</p>
+   ) : (
+     liked.map((product) => <LikedProduct key={product.id} product={product} />)
+   );
+ }

@@ -66,12 +66,16 @@ img {
   --color-discount: #F26D22;
 }
 
+.app{
+  background-color: var(--color-background);
+}
+
 .container {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 var(--size-middle-plus);
-    background-color: var(--color-background);
+   
 }
 
 .section {

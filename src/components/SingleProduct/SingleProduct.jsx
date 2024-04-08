@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import classes from "./SingleProduct.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleProduct } from "../../store/slices/singleProductSlice";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { SvgHeart } from "./../../assets/iconComponents/SvgHeart";
+import { DecreaseIcon, IncreaseIcon } from "../Cart/OneProduct/OneProductIcons";
+import { LikedIcon } from "../ProductsItem/LikedIcon";
+import { addToCart } from "../../store/slices/cartSlice";
 
-function SingleProduct() {
+function SingleProduct({product}) {
   // expand = rozwernutu
   const [isExpand, setIsExpand] = useState(false);
 
@@ -66,22 +69,34 @@ function SingleProduct() {
         <div className={classes.container_info}>
           <div className={classes.container_title}>
             <h3>{title}</h3>
-            <SvgHeart />
+            <LikedIcon/>
           </div>
 
           <div className={classes.container_prise}>
-            <h2>${discont_price}</h2>
-            <h2 className={classes.not_current__price}>${price}</h2>
+            {discont_price ? (
+              <>
+                <h2 className={classes.price}>${discont_price}</h2>
+
+                <h2 className={classes.not_current__price}>${price}</h2>
+              </>
+            ) : (
+              <h2 className={classes.price}>${price}</h2>
+            )}
           </div>
 
           <div className={classes.container_addToCard}>
             <div className={classes.container_minus_plus}>
-              <button className={classes.btn}>-</button>
+              <button className={classes.btn}>
+                <DecreaseIcon />
+              </button>
               <div>0</div>
-              <button className={classes.btn}>+</button>
+              <button className={classes.btn}>
+                <IncreaseIcon />
+              </button>
             </div>
 
-            <button className={classes.btn_add}>Add to cart</button>
+          
+            <button className={classes.btn_add} onClick={() => dispatch(addToCart({product}))}>Add to cart</button>
           </div>
 
           <div className={classes.container_text}>

@@ -12,9 +12,10 @@ import CategoriesPage from './pages/CategoriesPage';
 import AllProducts from './pages/AllProducts';
 import ProductPage from './pages/ProductPage';
 import { ProductByCategory } from './pages/ProductByCategory';
-import { AllCategories } from './components/AllCategories/AllCategories';
 import CartPage from './pages/CartPage';
 import NotFoundPage from "./pages/NotFoundPage";
+import { Liked } from './components/FavoriteProducts/Liked';
+
 
 
 const router = createBrowserRouter([
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         path: 'cart',
         element: <CartPage />,
       },
+      {
+        path: 'favorite',
+        element: <Liked/>
+      }
     ],
   },
 ]);

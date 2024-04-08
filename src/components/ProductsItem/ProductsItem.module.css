@@ -14,7 +14,8 @@
 }
 
 .card_info {
-  padding: var(--size-small-plus) var(--size-middle) var(--size-middle) var(--size-middle); 
+  padding: var(--size-small-plus) var(--size-middle) var(--size-middle)
+    var(--size-middle);
 }
 
 .title {
@@ -30,6 +31,7 @@
   font-size: var(--size-middle-plus);
   font-weight: 600;
   margin-right: var(--size-small);
+  color: var(--color-text);
 }
 
 .discount_price {
@@ -37,7 +39,8 @@
   text-decoration: line-through;
 }
 
-.price, .discount_price {
+.price,
+.discount_price {
   display: inline;
 }
 
@@ -47,16 +50,28 @@
   left: var(--size-small);
   padding: 4px 8px;
   font-weight: 600;
-  letter-spacing: .03em;
+  letter-spacing: 0.03em;
   color: #ffffff;
   background: var(--color-discount);
   border-radius: var(--radius-small);
 }
+
+.product_liked {
+  position: absolute;
+  top: var(--size-small);
+  right: 70px;
+}
+
+.add_to_liked {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .product_actions {
   position: absolute;
   top: var(--size-small);
   right: var(--size-small);
-
 }
 
 .add_to_cart {
@@ -71,7 +86,7 @@
   }
 
   .card_info {
-    padding: var(--size-small-plus); 
+    padding: var(--size-small-plus);
   }
 
   .price {
@@ -80,7 +95,6 @@
 }
 
 @media screen and (max-width: 999px) {
-
 }
 
 @media screen and (max-width: 767px) {
@@ -88,7 +102,9 @@
     height: 220px;
   }
 
-  .title, .discount_price, .discount {
+  .title,
+  .discount_price,
+  .discount {
     font-size: 18px;
   }
 

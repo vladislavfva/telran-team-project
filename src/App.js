@@ -8,14 +8,17 @@ function App() {
   const [isDarkTheme, setIsDarkTheme] = useLocalStorage('isDarkTheme', false)
 
   return (
-    <div className="container" data-theme={isDarkTheme ? 'dark' : 'light'}>
-      <HeaderNav
-        isChecked={isDarkTheme}
-        handleChange={() => setIsDarkTheme(!isDarkTheme)} />
-      <Outlet>
-        <div></div>
-      </Outlet>
-      <Footer />
+    <div className="app" data-theme={isDarkTheme ? "dark" : "light"}>
+      <div className="container">
+        <HeaderNav
+          isChecked={isDarkTheme}
+          handleChange={() => setIsDarkTheme(!isDarkTheme)}
+        />
+        <Outlet>
+          <div></div>
+        </Outlet>
+        <Footer />
+      </div>
     </div>
   );
 }
