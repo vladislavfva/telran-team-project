@@ -4,15 +4,21 @@ import classes from "./HeaderNav.module.css";
 import { SvgHeart } from "../../assets/iconComponents/SvgHeart";
 import { SvgBascket } from "../../assets/iconComponents/SvgBascket";
 import logo from "../../assets/iconComponents/logo.svg";
-import { SvgModeMoon } from "../../assets/iconComponents/SvgModeMoon";
+
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import { calculateTotals } from "../../store/slices/cartSlice";
 import DiscountPopup from "../DiscountPopup/DiscountPopup";
 import { getSingleProduct } from "../../store/slices/singleProductSlice";
 
+import { SvgMoonSun } from "../../assets/iconComponents/SvgMoonSun";
+import { addToLiked, countLike } from "../../store/slices/likedSlice";
+
+export const HeaderNav = ({ handleChange, isChecked }) => {
+  const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
+  
 export const HeaderNav = () => {
   const dispatch = useDispatch();
   const { cart, amount } = useSelector(state => state.cart);
@@ -28,9 +34,13 @@ export const HeaderNav = () => {
 
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false)
 
- const handleClickToggle = () => {
-   setBurgerMenuOpen(!burgerMenuOpen);
- };
+  const dispatch = useDispatch();
+  const { cart, amount } = useSelector((state) => state.cart);
+  const { liked, amountLike } = useSelector((state) => state.liked);
+
+  const handleClickToggle = () => {
+    setBurgerMenuOpen(!burgerMenuOpen);
+  };
 
   const [isActive, setIsActive] = useState(false);
 
@@ -38,13 +48,31 @@ export const HeaderNav = () => {
     setIsActive(false);
   }
 
+  useEffect(() => {
+    dispatch(calculateTotals());
+  }, [cart]);
+
+  useEffect(() => {
+    dispatch(countLike());
+  }, [liked])
   return (
     <div className={classes.container}>
       <DiscountPopup isActive={isActive} onClose={handlePopupClose} product={product[0]}/>
       <div className={classes.logo_container}>
-        <img src={logo} alt="logo" className={classes.logo} />
-        <div>
-          <SvgModeMoon />
+        <Link to={"/"}>
+          <img src={logo} alt="logo" className={classes.logo} />
+        </Link>
+        <div className={classes.dark_mode}>
+          <input
+            className={classes.dark_mode__input}
+            type="checkbox"
+            id="darkmode-toggle"
+            onChange={handleChange}
+            checked={isChecked}
+          />
+          <label className={classes.dark_mode__label} htmlFor="darkmode-toggle">
+            <SvgMoonSun />
+          </label>
         </div>
       </div>
 
@@ -64,7 +92,10 @@ export const HeaderNav = () => {
         <nav className={classes.nav_container}>
           <ul>
             <li>
-              <NavLink to={"/"} className={classes.nav_element__style}>
+              <NavLink
+                to={"/"}
+                className={`${classes.nav_element__style} ${classes.main}`}
+              >
                 Main Page
               </NavLink>
             </li>
@@ -103,7 +134,11 @@ export const HeaderNav = () => {
 
       <div className={classes.container_icon__menu}>
         <div className={classes.icon_container}>
-          <SvgHeart />
+          <Link className={classes.liked_container} to="/favorite">
+                            {/* ? show NaN why ? I think likedSlise not right write*/}
+            <p className={classes.liked_amount}>{amountLike}</p>
+            <SvgHeart />
+          </Link>
           <Link className={classes.cart_wrapper} to="/cart">
             <p className={classes.cart_amount}>{amount}</p>
             <SvgBascket />

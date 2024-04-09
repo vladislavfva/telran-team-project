@@ -1,9 +1,17 @@
 .one_product {
   display: flex;
-  background: #ffffff;
+  background: var(--color-background);
   border: solid 1px var(--color-light-devider);
   border-radius: var(--radius-big);
   overflow: hidden;
+}
+
+.title{
+  color: var(--color-text);
+}
+
+.counter_text{
+  color: var(--color-text);
 }
 
 .preview {
@@ -39,6 +47,7 @@
   cursor: pointer;
 }
 
+
 .counter {
   width: 200px;
   display: flex;
@@ -67,6 +76,7 @@
   font-size: 40px;
   line-height: 44px;
   font-weight: 600;
+  color: var(--color-text-grey);
 }
 
 .old_price {

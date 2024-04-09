@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -12,6 +13,9 @@ import AllProducts from './pages/AllProducts';
 import ProductPage from './pages/ProductPage';
 import { ProductByCategory } from './pages/ProductByCategory';
 import CartPage from './pages/CartPage';
+import NotFoundPage from "./pages/NotFoundPage";
+import { Liked } from './components/FavoriteProducts/Liked';
+
 import NotFoundPage from './pages/NotFoundPage';
 
 const router = createBrowserRouter([
@@ -51,6 +55,10 @@ const router = createBrowserRouter([
         path: 'cart',
         element: <CartPage />,
       },
+      {
+        path: 'favorite',
+        element: <Liked/>
+      }
     ],
   },
 ]);

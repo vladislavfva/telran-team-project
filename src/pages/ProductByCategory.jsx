@@ -22,7 +22,7 @@ export const ProductByCategory = () => {
 
   return (
     <>
-      <h2 style={{ margin: "30px 0px" }}>Product</h2>
+      <h2 style={{ margin: "30px 0px", color: 'var(--color-text)'}}>Product</h2>
       <ProductsFilters />
       <ProductsList filterDiscounted={false} randomize={false} />
     </>

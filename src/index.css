@@ -11,7 +11,7 @@ body {
   font-size: 20px;
   font-weight: 500;
   color: var(--color-text);
-  background-color: var(--color-background);
+
 }
 
 h1, h2 {
@@ -55,11 +55,27 @@ img {
   --size-big: 80px;
 }
 
+[data-theme='dark'] {
+   --color-accent: #92A134;
+  --color-background: #303030;
+  --color-devider: #efefe9;
+  --color-light-grey: #2d2d30;
+  --color-light-devider: #f1f1e4;
+  --color-text: #ecece0;
+  --color-text-grey: #a3a3a3;
+  --color-discount: #F26D22;
+}
+
+.app{
+  background-color: var(--color-background);
+}
+
 .container {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 var(--size-middle-plus);
+   
 }
 
 .section {
