@@ -1,3 +1,7 @@
+footer > h2{
+  color: var(--color-text);
+}
+
 address {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -22,6 +26,7 @@ address>div>p:first-child{
 .heading {
   font-size: 40px;
   font-weight: 600;
+   color: var(--color-text);
 }
 
 .map {

@@ -10,7 +10,7 @@ const CategoriesRender = () => {
   return (
     <div className="section">
       <div className={classes.top_container}>
-        <h2>Categories</h2>
+        <h2 className={classes.categor}>Categories</h2>
         <div className={classes.container_line}>
           <div className={classes.line}></div>
           <Link to={'/categories'} className={classes.link}>All categories</Link>

@@ -7,8 +7,9 @@
   margin-bottom: var(--size-middle-plus);
 }
 
-.top_container h2 {
+.categor {
   padding-top: 30px;
+  color: var(--color-text);
 }
 
 .container_line {
@@ -16,8 +17,8 @@
   display: flex;
   align-items: center;
   margin-top: 10px;
-}
 
+}
 
 .link {
   color: var(--color-text-grey);
@@ -36,7 +37,7 @@
 .line {
   height: 1px;
   width: 100%;
-  background: #dddddd;
+  background: var(--color-text-grey);
   margin-top: 40px;
 }
 
