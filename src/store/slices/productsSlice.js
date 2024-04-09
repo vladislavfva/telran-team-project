@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-
 const initialState = {
   products: [],
   allProducts: [],
@@ -22,6 +21,7 @@ export const getProducts = createAsyncThunk(
     );
 
     const data = await res.json();
+    console.log(data);
     return data;
   }
 );
@@ -66,7 +66,7 @@ const filterDiscountedProducts = (products) => {
 };
 
 export const productsSlice = createSlice({
-  name: "products",
+  name: 'products',
   initialState,
   reducers: {
     setFilterDiscounted: (state, action) => {
@@ -123,6 +123,11 @@ export const productsSlice = createSlice({
         } else {
           state.products = action.payload;
         }
+        state.products.map((el) => {
+          if (el.id === 2) {
+            el.discont_price = (el.price / 2).toFixed(2);
+          }
+        });
 
         if (state.randomize) {
           state.products = state.products
@@ -131,12 +136,10 @@ export const productsSlice = createSlice({
             .slice(0, 4);
         }
       })
-      .addCase(getProducts.pending, () => console.log("pending"))
-      .addCase(getProducts.rejected, () => console.log("rejected"))
+      .addCase(getProducts.pending, () => console.log('pending'))
+      .addCase(getProducts.rejected, () => console.log('rejected'));
   },
 });
-
-
 
 export const {
   setFilterDiscounted,

@@ -6,8 +6,7 @@ const product = useSelector((state) => state.singleProduct.singleProduct)
 
   return (
     <div>
-      <SingleProduct product={product[0]} />
-
+      <SingleProduct product={product[0]} /><SingleProduct />
     </div>
   );
 }

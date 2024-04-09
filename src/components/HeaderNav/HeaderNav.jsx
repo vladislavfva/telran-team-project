@@ -10,12 +10,29 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { calculateTotals } from "../../store/slices/cartSlice";
+import DiscountPopup from "../DiscountPopup/DiscountPopup";
+import { getSingleProduct } from "../../store/slices/singleProductSlice";
 
 import { SvgMoonSun } from "../../assets/iconComponents/SvgMoonSun";
 import { addToLiked, countLike } from "../../store/slices/likedSlice";
 
 export const HeaderNav = ({ handleChange, isChecked }) => {
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
+  
+export const HeaderNav = () => {
+  const dispatch = useDispatch();
+  const { cart, amount } = useSelector(state => state.cart);
+  const product = useSelector(state => state.singleProduct.singleProduct);
+  useEffect(() => {
+    dispatch(getSingleProduct(2))
+  }, [dispatch])
+
+
+  useEffect(() => {
+    dispatch(calculateTotals());
+  }, [cart])
+
+  const [burgerMenuOpen, setBurgerMenuOpen] = useState(false)
 
   const dispatch = useDispatch();
   const { cart, amount } = useSelector((state) => state.cart);
@@ -24,6 +41,12 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
   const handleClickToggle = () => {
     setBurgerMenuOpen(!burgerMenuOpen);
   };
+
+  const [isActive, setIsActive] = useState(false);
+
+  const handlePopupClose = () => {
+    setIsActive(false);
+  }
 
   useEffect(() => {
     dispatch(calculateTotals());
@@ -34,6 +57,7 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
   }, [liked])
   return (
     <div className={classes.container}>
+      <DiscountPopup isActive={isActive} onClose={handlePopupClose} product={product[0]}/>
       <div className={classes.logo_container}>
         <Link to={"/"}>
           <img src={logo} alt="logo" className={classes.logo} />
@@ -57,7 +81,7 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           burgerMenuOpen ? classes.active : ""
         }`}
       >
-        <button className={classes.btn}>1 day discount!</button>
+        <button onClick={() => setIsActive(true)} className={classes.btn}>1 day discount!</button>
         <button onClick={handleClickToggle} className={classes.cross_btn}>
           <div className={classes.cross}>
             <span className={classes.span_bevelled__top}></span>

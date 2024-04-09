@@ -16,7 +16,7 @@ import CartPage from './pages/CartPage';
 import NotFoundPage from "./pages/NotFoundPage";
 import { Liked } from './components/FavoriteProducts/Liked';
 
-
+import NotFoundPage from './pages/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: '*',
-        element: <NotFoundPage/>
+        element: <NotFoundPage />,
       },
       {
         path: 'categories',
