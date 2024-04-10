@@ -1,20 +1,31 @@
 import { useDispatch, useSelector } from 'react-redux';
 import ProductsItem from '../ProductsItem/ProductsItem';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getProducts } from '../../store/slices/productsSlice';
 import classes from './ProductsList.module.css';
-import { setFilterDiscounted, setRandomize } from '../../store/slices/productsSlice'
+import {
+  setFilterDiscounted,
+  setRandomize,
+} from '../../store/slices/productsSlice';
+import Skeleton from '../Skeleton/Skeleton';
 
-function ProductsList({filterDiscounted, randomize}) {
+function ProductsList({ filterDiscounted, randomize }) {
   const products = useSelector((state) => state.product.products);
+  const [isLoading, setIsLoading] = useState(true);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProducts());
+    dispatch(getProducts()).then(() => {
+      setIsLoading(false);
+    });
     dispatch(setFilterDiscounted(filterDiscounted));
     dispatch(setRandomize(randomize));
+  }, [filterDiscounted, randomize]);
 
-  }, [filterDiscounted, setRandomize]);
+  // Here shoul be placed a skeleton
+  if (isLoading) {
+    return <Skeleton count={12} />;
+  }
 
   return (
     <div className={classes.products_list}>
