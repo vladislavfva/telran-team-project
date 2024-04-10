@@ -5,14 +5,22 @@ const initialState = {
 };
 
 export const getSingleProduct = createAsyncThunk(
-  'products/getSingleProducts',
+  "products/getSingleProducts",
   async (id, { rejectWithValue, dispatch }) => {
-    const res = await fetch(
-      process.env.REACT_APP_BACKEND_BASE_URL + `/products/${id}`
-    );
+    try {
+      const response = await fetch(
+        process.env.REACT_APP_BACKEND_BASE_URL + `/products/${id}`
+      );
 
-    const data = await res.json();
-    return data;
+      if (!response.ok) {
+        throw new Error("Server Error!");
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      return rejectWithValue(err.message);
+    }
   }
 );
 

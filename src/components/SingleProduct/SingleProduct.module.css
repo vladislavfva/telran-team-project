@@ -65,29 +65,38 @@ h4 {
   color: var(--color-text);
 }
 
+.add_to_liked{
+   background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .container_prise {
   display: flex;
   gap: 20px;
-  position: relative;
 }
 
 .price {
   color: var(--color-text);
 }
 
+.container_discount {
+  display: flex;
+  position: relative;
+}
+
 .not_current__price {
   font-size: 40px;
   color: var(--color-text-grey);
   text-decoration: line-through;
-  position: absolute;
-  left: 140px;
+  position: relative;
   top: 20px;
 }
 
 .discount {
   position: absolute;
-  right: 200px;
-  top: 10px;
+  bottom: 50px;
+  left: 150px;
   padding: 4px 8px;
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -106,8 +115,8 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: solid 1px var(--color-light-devider);
-  border-bottom: solid 1px var(--color-light-devider);
+  max-width: 180px;
+  border: solid 1px var(--color-light-devider);
   border-radius: var(--radius-small);
 }
 
@@ -115,6 +124,8 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-left: solid 1px var(--color-light-devider);
+  border-right: solid 1px var(--color-light-devider);
   width: 58px;
   height: 58px;
   color: var(--color-text);
@@ -123,8 +134,6 @@ h4 {
 .btn {
   width: 58px;
   height: 58px;
-  border-left: solid 1px var(--color-light-devider);
-  border-right: solid 1px var(--color-light-devider);
   border-radius: var(--radius-small);
   background: transparent;
   border: none;
@@ -185,6 +194,7 @@ h4 {
 @media screen and (max-width: 1050px) {
   .img {
     width: 400px;
+    /* position: relative; */
   }
 
   .popup {
@@ -193,9 +203,10 @@ h4 {
   }
 
   .container_addToCard {
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr;
   }
+  
   .container_text {
     display: none;
   }
@@ -207,9 +218,15 @@ h4 {
     flex-direction: column;
     gap: 20px;
   }
+
+  .discount {
+    position: absolute;
+    bottom: 100px;
+    left: -290px;
+  }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 780px) {
   .container {
     margin-top: 10px;
   }
@@ -230,14 +247,19 @@ h4 {
     width: 210px;
   }
 
+
   .not_current__price {
     font-size: 30px;
-    left: 110px;
-    top: 20px;
+  }
+
+  .discount {
+    position: absolute;
+    bottom: 10px;
+    left: -220px;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 530px) {
   .container {
     grid-template-columns: auto;
     align-items: center;
@@ -247,10 +269,22 @@ h4 {
   .img {
     width: 310px;
   }
+
+    .discount {
+    position: absolute;
+    bottom: 330px;
+    left: 70px;
+  }
 }
 
 @media screen and (max-width: 350px) {
   .img {
     width: 250px;
+  }
+
+     .discount {
+    position: absolute;
+    bottom: 260px;
+    left: 40px;
   }
 }
