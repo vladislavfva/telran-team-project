@@ -1,6 +1,6 @@
 .one_product {
   display: flex;
-  background: var(--color-background);
+  background: var(--color-card-bg);
   border: solid 1px var(--color-light-devider);
   border-radius: var(--radius-big);
   overflow: hidden;
@@ -76,11 +76,13 @@
   font-size: 40px;
   line-height: 44px;
   font-weight: 600;
-  color: var(--color-text-grey);
+  color: var(--color-text);
 }
 
 .old_price {
   color: var(--color-text-grey);
+  text-decoration: line-through;
+  line-height: 34px;
 }
 
 @media screen and (max-width: 1439px) {

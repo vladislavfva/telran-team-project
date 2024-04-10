@@ -1,13 +1,12 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import classes from "./Liked.module.css";
-import { Link } from "react-router-dom";
-import ProductsItem from "../ProductsItem/ProductsItem";
-import ProductsFilters from "../ProductsFilters/ProductsFilters";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import classes from './Liked.module.css';
+import { Link } from 'react-router-dom';
+import ProductsItem from '../ProductsItem/ProductsItem';
+import ProductsFilters from '../ProductsFilters/ProductsFilters';
 
-export const Liked = ({ filterDiscounted, randomize }) => {
+export const Liked = () => {
   const likedProduct = useSelector((state) => state.liked.liked);
-
 
   return (
     <>
