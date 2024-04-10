@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from "react";
-import classes from "./SingleProduct.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getSingleProduct } from "../../store/slices/singleProductSlice";
-import { Link, useParams } from "react-router-dom";
-import { SvgHeart } from "./../../assets/iconComponents/SvgHeart";
-import { DecreaseIcon, IncreaseIcon } from "../Cart/OneProduct/OneProductIcons";
-import { LikedIcon } from "../ProductsItem/LikedIcon";
-import { addToCart } from "../../store/slices/cartSlice";
+import React, { useEffect, useState } from 'react';
+import classes from './SingleProduct.module.css';
+import { useDispatch } from 'react-redux';
+import { getSingleProduct } from '../../store/slices/singleProductSlice';
+import { useParams } from 'react-router-dom';
+import { SvgHeart } from './../../assets/iconComponents/SvgHeart';
+import { DecreaseIcon, IncreaseIcon } from '../Cart/OneProduct/OneProductIcons';
+import { LikedIcon } from '../ProductsItem/LikedIcon';
+import { addToCart } from '../../store/slices/cartSlice';
 
-function SingleProduct({product}) {
+function SingleProduct({ product }) {
   // expand = rozwernutu
   const [isExpand, setIsExpand] = useState(false);
 
-   const [showPopup, setShowPopup] = useState(false);
-
-  const singleProduct = useSelector(
-    (state) => state.singleProduct.singleProduct
-  );
+  const [showPopup, setShowPopup] = useState(false);
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -25,11 +21,11 @@ function SingleProduct({product}) {
     dispatch(getSingleProduct(id));
   }, [dispatch, id]);
 
-  if (!singleProduct || singleProduct.length === 0 || !singleProduct[0]) {
+  if (!product || product.length === 0 || !product) {
     return <div>Loading...</div>;
   }
 
-  const { image, title, price, discont_price, description } = singleProduct[0];
+  const { image, title, price, discont_price, description } = product;
 
   const toggleExpand = () => {
     setIsExpand(!isExpand);
@@ -76,7 +72,6 @@ function SingleProduct({product}) {
             {discont_price ? (
               <>
                 <h2 className={classes.price}>${discont_price}</h2>
-
                 <h2 className={classes.not_current__price}>${price}</h2>
               </>
             ) : (
@@ -84,14 +79,9 @@ function SingleProduct({product}) {
             )}
 
             <div className={classes.discount}>
-              {product.discont_price
-                ? "-" +
-                  Math.ceil(
-                    ((product.price - product.discont_price) * 100) /
-                      product.price
-                  ) +
-                  "%"
-                : ""}
+              {discont_price
+                ? '-' + Math.ceil(((price - discont_price) * 100) / price) + '%'
+                : ''}
             </div>
           </div>
 
@@ -100,7 +90,7 @@ function SingleProduct({product}) {
               <button className={classes.btn}>
                 <DecreaseIcon />
               </button>
-              <div>0</div>
+              <div>1</div>
               <button className={classes.btn}>
                 <IncreaseIcon />
               </button>
@@ -119,7 +109,7 @@ function SingleProduct({product}) {
             <p className={classes.description}>
               {isExpand ? description : `${description.slice(0, 100)}...`}
               <button className={classes.btn_readMore} onClick={toggleExpand}>
-                {isExpand ? "Hide" : "Read More"}
+                {isExpand ? 'Hide' : 'Read More'}
               </button>
             </p>
           </div>
@@ -130,7 +120,7 @@ function SingleProduct({product}) {
         <p className={classes.description}>
           {isExpand ? description : `${description.slice(0, 100)}...`}
           <button className={classes.btn_readMore} onClick={toggleExpand}>
-            {isExpand ? "Hide" : "Read More"}
+            {isExpand ? 'Hide' : 'Read More'}
           </button>
         </p>
       </div>
