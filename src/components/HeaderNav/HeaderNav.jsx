@@ -131,7 +131,6 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
       <div className={classes.container_icon__menu}>
         <div className={classes.icon_container}>
           <Link className={classes.liked_container} to="/favorite">
-                            {/* ? show NaN why ? I think likedSlise not right write*/}
             <p className={classes.liked_amount}>{amountLike}</p>
             <SvgHeart />
           </Link>

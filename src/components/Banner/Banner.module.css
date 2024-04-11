@@ -16,6 +16,7 @@
 }
 
 .text_amazing__discounts {
+  margin-top: 80px;
   line-height: 105px;
   color: var(--color-devider);
 }
@@ -47,6 +48,7 @@
   }
 
   .text_amazing__discounts {
+   
     line-height: 90px;
     font-size: 80px;
   }
@@ -70,6 +72,7 @@
   }
 
   .text_amazing__discounts {
+     margin-top: 0px;
     line-height: 74px;
     margin-bottom: 50px;
   }
