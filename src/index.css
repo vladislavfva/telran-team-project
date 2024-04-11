@@ -6,16 +6,11 @@
   padding: 0;
 }
 
-html {
-  background-color: var(--color-background);
-}
-
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 500;
   color: var(--color-text);
-
 }
 
 h1, h2 {
@@ -66,12 +61,12 @@ img {
   --color-accent: #92A134;
   --color-background: #303030;
   --color-devider: #efefe9;
-  --color-light-grey: #000000;
+  --color-light-grey: #202020;
   --color-light-devider: #f1f1e4;
   --color-text: #ecece0;
   --color-text-grey: #a3a3a3;
   --color-discount: #F26D22;
-  --color-card-bg: #000000;
+  --color-card-bg: #202020;
 }
 
 .app{
