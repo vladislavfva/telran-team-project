@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+html {
+  background-color: var(--color-background);
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
@@ -36,6 +40,7 @@ img {
 }
 
 :root {
+  color-scheme: light;
   --color-accent: #92A134;
   --color-background: #fffff1;
   --color-devider: #FFFFF1;
@@ -44,6 +49,7 @@ img {
   --color-text: #424436;
   --color-text-grey: #8B8B8B;
   --color-discount: #F26D22;
+  --color-card-bg: #ffffff;
 
   --radius-small: 6px;
   --radius-big: 12px;
@@ -56,14 +62,16 @@ img {
 }
 
 [data-theme='dark'] {
-   --color-accent: #92A134;
+  color-scheme: dark;
+  --color-accent: #92A134;
   --color-background: #303030;
   --color-devider: #efefe9;
-  --color-light-grey: #2d2d30;
+  --color-light-grey: #000000;
   --color-light-devider: #f1f1e4;
   --color-text: #ecece0;
   --color-text-grey: #a3a3a3;
   --color-discount: #F26D22;
+  --color-card-bg: #000000;
 }
 
 .app{

@@ -56,10 +56,12 @@
 .title {
   font-size: 40px;
   line-height: 44px;
+  color: #ffffff;
 }
 
 .product_title {
   margin-bottom: 16px;
+  color: #424436;
 }
 
 .current_price {
@@ -67,6 +69,7 @@
   font-size: 40px;
   line-height: 44px;
   margin-right: 16px;
+  color: #424436;
 }
 
 .price_before {
@@ -80,8 +83,17 @@
   border: none;
   border-radius: var(--radius-small);
   font-size: 20px;
-  background: var(--color-background);
+  background: #fffff1;
   cursor: pointer;
+  transition: background-color ease 0.3s;
+}
+
+.button:hover {
+  background-color: #fdfddd;
+}
+
+.button:active {
+  transform: scale(.99);
 }
 
 .close {
