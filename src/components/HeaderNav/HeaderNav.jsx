@@ -14,15 +14,16 @@ import DiscountPopup from "../DiscountPopup/DiscountPopup";
 import { getSingleProduct } from "../../store/slices/singleProductSlice";
 
 import { SvgMoonSun } from "../../assets/iconComponents/SvgMoonSun";
-import { addToLiked, countLike } from "../../store/slices/likedSlice";
+import { countLike } from "../../store/slices/likedSlice";
 
 export const HeaderNav = ({ handleChange, isChecked }) => {
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
   
-export const HeaderNav = () => {
   const dispatch = useDispatch();
   const { cart, amount } = useSelector(state => state.cart);
+  const { liked, amountLike } = useSelector((state) => state.liked);
   const product = useSelector(state => state.singleProduct.singleProduct);
+
   useEffect(() => {
     dispatch(getSingleProduct(2))
   }, [dispatch])
@@ -31,12 +32,6 @@ export const HeaderNav = () => {
   useEffect(() => {
     dispatch(calculateTotals());
   }, [cart])
-
-  const [burgerMenuOpen, setBurgerMenuOpen] = useState(false)
-
-  const dispatch = useDispatch();
-  const { cart, amount } = useSelector((state) => state.cart);
-  const { liked, amountLike } = useSelector((state) => state.liked);
 
   const handleClickToggle = () => {
     setBurgerMenuOpen(!burgerMenuOpen);
@@ -55,6 +50,7 @@ export const HeaderNav = () => {
   useEffect(() => {
     dispatch(countLike());
   }, [liked])
+  
   return (
     <div className={classes.container}>
       <DiscountPopup isActive={isActive} onClose={handlePopupClose} product={product[0]}/>

@@ -1,13 +1,26 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import classes from "./Liked.module.css";
-import { Link } from "react-router-dom";
-import ProductsItem from "../ProductsItem/ProductsItem";
-import ProductsFilters from "../ProductsFilters/ProductsFilters";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import classes from './Liked.module.css';
+import { Link } from 'react-router-dom';
+import ProductsItem from '../ProductsItem/ProductsItem';
+import ProductsFilters from '../ProductsFilters/ProductsFilters';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getProducts } from '../../store/slices/productsSlice';
 
-export const Liked = ({ filterDiscounted, randomize }) => {
-  const likedProduct = useSelector((state) => state.liked.liked);
+export const Liked = () => {
+  const likedProducts = useSelector((state) => state.liked.liked);
+  const products = useSelector((state) => state.product.products);
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+
+  const likedProductsIds = likedProducts.map((product) => product.product.id);
+  const filteredProducts = products.filter((product) =>
+    likedProductsIds.includes(product.id)
+  );
 
   return (
     <>
@@ -22,8 +35,8 @@ export const Liked = ({ filterDiscounted, randomize }) => {
       </div>
       <ProductsFilters />
       <div className={classes.container_liked__product}>
-        {likedProduct.map((item) => (
-          <ProductsItem key={item.product.id} product={item.product} />
+        {filteredProducts.map((product) => (
+          <ProductsItem key={product.id} product={product} />
         ))}
       </div>
     </>
