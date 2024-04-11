@@ -388,6 +388,16 @@
     font-weight: 600;
     line-height: 7.2px;
   }
+
+    .liked_amount{
+    top: 5px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    font-size: 8px;
+    font-weight: 600;
+    line-height: 7.2px;
+  }
 }
 
 @media screen and (max-width: 350px) {
