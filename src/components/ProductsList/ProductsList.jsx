@@ -22,7 +22,6 @@ function ProductsList({ filterDiscounted, randomize }) {
     dispatch(setRandomize(randomize));
   }, [filterDiscounted, randomize]);
 
-  // Here shoul be placed a skeleton
   if (isLoading) {
     return <Skeleton count={12} />;
   }

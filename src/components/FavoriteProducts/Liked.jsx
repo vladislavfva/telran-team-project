@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import classes from './Liked.module.css';
 import { Link } from 'react-router-dom';
@@ -7,20 +7,28 @@ import ProductsFilters from '../ProductsFilters/ProductsFilters';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getProducts } from '../../store/slices/productsSlice';
+import Skeleton from '../Skeleton/Skeleton';
 
 export const Liked = () => {
   const likedProducts = useSelector((state) => state.liked.liked);
   const products = useSelector((state) => state.product.products);
+  const [isLoading, setIsLoading] = useState(true);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProducts());
+    dispatch(getProducts()).then(() => {
+      setIsLoading(false);
+    });
   }, []);
 
   const likedProductsIds = likedProducts.map((product) => product.product.id);
   const filteredProducts = products.filter((product) =>
     likedProductsIds.includes(product.id)
   );
+
+  if (isLoading) {
+    return <Skeleton count={4} />;
+  }
 
   return (
     <>

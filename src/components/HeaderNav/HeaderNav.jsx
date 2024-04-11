@@ -1,37 +1,36 @@
-import React from "react";
-import { useState } from "react";
-import classes from "./HeaderNav.module.css";
-import { SvgHeart } from "../../assets/iconComponents/SvgHeart";
-import { SvgBascket } from "../../assets/iconComponents/SvgBascket";
-import logo from "../../assets/iconComponents/logo.svg";
+import React from 'react';
+import { useState } from 'react';
+import classes from './HeaderNav.module.css';
+import { SvgHeart } from '../../assets/iconComponents/SvgHeart';
+import { SvgBascket } from '../../assets/iconComponents/SvgBascket';
+import logo from '../../assets/iconComponents/logo.svg';
 
-import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { calculateTotals } from "../../store/slices/cartSlice";
-import DiscountPopup from "../DiscountPopup/DiscountPopup";
-import { getSingleProduct } from "../../store/slices/singleProductSlice";
+import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { calculateTotals } from '../../store/slices/cartSlice';
+import DiscountPopup from '../DiscountPopup/DiscountPopup';
+import { getSingleProduct } from '../../store/slices/singleProductSlice';
 
-import { SvgMoonSun } from "../../assets/iconComponents/SvgMoonSun";
-import { countLike } from "../../store/slices/likedSlice";
+import { SvgMoonSun } from '../../assets/iconComponents/SvgMoonSun';
+import { countLike } from '../../store/slices/likedSlice';
 
 export const HeaderNav = ({ handleChange, isChecked }) => {
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
-  
+
   const dispatch = useDispatch();
-  const { cart, amount } = useSelector(state => state.cart);
+  const { cart, amount } = useSelector((state) => state.cart);
   const { liked, amountLike } = useSelector((state) => state.liked);
-  const product = useSelector(state => state.singleProduct.singleProduct);
+  const product = useSelector((state) => state.singleProduct.discountProduct);
 
   useEffect(() => {
-    dispatch(getSingleProduct(2))
-  }, [dispatch])
-
+    dispatch(getSingleProduct(2));
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(calculateTotals());
-  }, [cart])
+  }, [cart]);
 
   const handleClickToggle = () => {
     setBurgerMenuOpen(!burgerMenuOpen);
@@ -41,7 +40,7 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
 
   const handlePopupClose = () => {
     setIsActive(false);
-  }
+  };
 
   useEffect(() => {
     dispatch(calculateTotals());
@@ -49,13 +48,17 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
 
   useEffect(() => {
     dispatch(countLike());
-  }, [liked])
-  
+  }, [liked]);
+
   return (
     <div className={classes.container}>
-      <DiscountPopup isActive={isActive} onClose={handlePopupClose} product={product[0]}/>
+      <DiscountPopup
+        isActive={isActive}
+        onClose={handlePopupClose}
+        product={product[0]}
+      />
       <div className={classes.logo_container}>
-        <Link to={"/"}>
+        <Link to={'/'}>
           <img src={logo} alt="logo" className={classes.logo} />
         </Link>
         <div className={classes.dark_mode}>
@@ -74,10 +77,12 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
 
       <div
         className={`${classes.central_container__nav} ${
-          burgerMenuOpen ? classes.active : ""
+          burgerMenuOpen ? classes.active : ''
         }`}
       >
-        <button onClick={() => setIsActive(true)} className={classes.btn}>1 day discount!</button>
+        <button onClick={() => setIsActive(true)} className={classes.btn}>
+          1 day discount!
+        </button>
         <button onClick={handleClickToggle} className={classes.cross_btn}>
           <div className={classes.cross}>
             <span className={classes.span_bevelled__top}></span>
@@ -89,7 +94,7 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           <ul>
             <li>
               <NavLink
-                to={"/"}
+                to={'/'}
                 className={`${classes.nav_element__style} ${classes.main}`}
               >
                 Main Page
@@ -99,7 +104,7 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           <ul>
             <li>
               <NavLink
-                to={"/categories"}
+                to={'/categories'}
                 className={classes.nav_element__style}
               >
                 Categories
@@ -109,7 +114,7 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           <ul>
             <li>
               <NavLink
-                to={"/all-products"}
+                to={'/all-products'}
                 className={classes.nav_element__style}
               >
                 All products
@@ -118,7 +123,7 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           </ul>
           <ul>
             <li>
-              <NavLink to={"/all-sales"} className={classes.nav_element__style}>
+              <NavLink to={'/all-sales'} className={classes.nav_element__style}>
                 All sales
               </NavLink>
             </li>
