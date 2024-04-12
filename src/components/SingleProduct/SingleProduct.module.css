@@ -142,7 +142,7 @@ h4 {
 
 .btn:hover {
   cursor: pointer;
-  background-color: #afc905;
+  background: #afc905;
 }
 
 .btn_add {
