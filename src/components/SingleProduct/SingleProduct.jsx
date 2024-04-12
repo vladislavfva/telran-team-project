@@ -9,11 +9,12 @@ import { addToCart } from "../../store/slices/cartSlice";
 import { addToLiked, remove } from "../../store/slices/likedSlice";
 
 function SingleProduct({ product }) {
+  const { id } = useParams();
+  const dispatch = useDispatch();
   // expand = rozwernutu
   const [isExpand, setIsExpand] = useState(false);
 
   const [showPopup, setShowPopup] = useState(false);
-
 
   const [amount, setAmount] = useState(1);
 
@@ -21,15 +22,12 @@ function SingleProduct({ product }) {
     state.liked.liked.some((item) => item.product)
   );
 
-  const { id } = useParams();
-  const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getSingleProduct(id));
   }, [dispatch, id]);
 
-  if (!product || product.length === 0 || !product) {
-    return <div>Loading...</div>;
+  if (!product || product.length === 0) {
+    return <div style={{ color: "transparent" }}>Loading...</div>;
   }
 
   const { image, title, price, discont_price, description } = product;
@@ -43,33 +41,31 @@ function SingleProduct({ product }) {
   };
 
   const decreaseCounter = () => {
-        if (amount > 1) {
-          setAmount(amount - 1);
-        }
+    if (amount > 1) {
+      setAmount(amount - 1);
+    }
   };
-  
-    const increaseCounter = () => {
-      setAmount(amount + 1);
+
+  const increaseCounter = () => {
+    setAmount(amount + 1);
   };
-  
- 
 
   return (
     <>
       <div className={classes.container_title__up}>
         <h3>{title}</h3>
         <button
-              className={classes.add_to_liked}
-              onClick={() => {
-                if (likedProduct) {
-                  dispatch(remove({ product }));
-                } else {
-                  dispatch(addToLiked({ product }));
-                }
-              }}
-            >
-              {likedProduct ? <LikedIcon isActive={true} /> : <LikedIcon />}
-            </button>
+          className={classes.add_to_liked}
+          onClick={() => {
+            if (likedProduct) {
+              dispatch(remove({ product }));
+            } else {
+              dispatch(addToLiked({ product }));
+            }
+          }}
+        >
+          {likedProduct ? <LikedIcon isActive={true} /> : <LikedIcon />}
+        </button>
       </div>
       <div className={classes.container}>
         <div>
@@ -141,16 +137,22 @@ function SingleProduct({ product }) {
 
             <button
               className={classes.btn_add}
-              onClick={() =>
-                dispatch(addToCart({ product }))
-              }
+              onClick={() => {
+                if (amount > 2) {
+                  for (let i = 0; i < amount; i++) {
+                    dispatch(addToCart({ product }));
+                  }
+                } else {
+                  dispatch(addToCart({ product }));
+                }
+              }}
             >
               Add to cart
             </button>
           </div>
 
           <div className={classes.container_text}>
-            <h4>{title}</h4>
+            <h4>Discription</h4>
             <p className={classes.description}>
               {isExpand ? description : `${description.slice(0, 100)}...`}
               <button className={classes.btn_readMore} onClick={toggleExpand}>
@@ -161,7 +163,7 @@ function SingleProduct({ product }) {
         </div>
       </div>
       <div className={classes.container_text__down}>
-        <h4>{title}</h4>
+        <h4>Discription</h4>
         <p className={classes.description}>
           {isExpand ? description : `${description.slice(0, 100)}...`}
           <button className={classes.btn_readMore} onClick={toggleExpand}>
