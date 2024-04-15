@@ -50,6 +50,10 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
     dispatch(countLike());
   }, [liked]);
 
+   const closeMenu = () => {
+     setBurgerMenuOpen(false);
+   };
+
   return (
     <div className={classes.container}>
       <DiscountPopup
@@ -58,7 +62,7 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
         product={product[0]}
       />
       <div className={classes.logo_container}>
-        <Link to={'/'}>
+        <Link to={"/"}>
           <img src={logo} alt="logo" className={classes.logo} />
         </Link>
         <div className={classes.dark_mode}>
@@ -77,7 +81,7 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
 
       <div
         className={`${classes.central_container__nav} ${
-          burgerMenuOpen ? classes.active : ''
+          burgerMenuOpen ? classes.active : ""
         }`}
       >
         <button onClick={() => setIsActive(true)} className={classes.btn}>
@@ -94,8 +98,9 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           <ul>
             <li>
               <NavLink
-                to={'/'}
+                to={"/"}
                 className={`${classes.nav_element__style} ${classes.main}`}
+                onClick={closeMenu}
               >
                 Main Page
               </NavLink>
@@ -104,8 +109,9 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           <ul>
             <li>
               <NavLink
-                to={'/categories'}
+                to={"/categories"}
                 className={classes.nav_element__style}
+                onClick={closeMenu}
               >
                 Categories
               </NavLink>
@@ -114,8 +120,9 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           <ul>
             <li>
               <NavLink
-                to={'/all-products'}
+                to={"/all-products"}
                 className={classes.nav_element__style}
+                onClick={closeMenu}
               >
                 All products
               </NavLink>
@@ -123,14 +130,20 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           </ul>
           <ul>
             <li>
-              <NavLink to={'/all-sales'} className={classes.nav_element__style}>
+              <NavLink
+                to={"/all-sales"}
+                className={classes.nav_element__style}
+                onClick={closeMenu}
+              >
                 All sales
               </NavLink>
             </li>
           </ul>
         </nav>
 
-        <button className={classes.btn_burger__menu}>1 day discount!</button>
+        <button className={classes.btn_burger__menu} onClick={closeMenu}>
+          1 day discount!
+        </button>
       </div>
 
       <div className={classes.container_icon__menu}>

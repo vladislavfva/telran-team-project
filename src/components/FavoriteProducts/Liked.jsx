@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getProducts } from '../../store/slices/productsSlice';
 import Skeleton from '../Skeleton/Skeleton';
+import EmptyCart from '../Cart/EmptyCart/EmptyCart';
 
 export const Liked = () => {
   const likedProducts = useSelector((state) => state.liked.liked);
@@ -30,23 +31,29 @@ export const Liked = () => {
     return <Skeleton count={4} />;
   }
 
-  return (
-    <>
-      <div className={classes.container}>
-        <h2 className={classes.heading}>Liked products</h2>
-        <div className={classes.button_wrapper}>
-          <div className={classes.line}></div>
-          <Link to="/all-products" className={classes.button}>
-            Back to the store
-          </Link>
+    return (
+      <>
+        <div className={classes.container}>
+          <h2 className={classes.heading}>Liked products</h2>
+          <div className={classes.button_wrapper}>
+            <div className={classes.line}></div>
+            <Link to="/all-products" className={classes.button}>
+              Back to the store
+            </Link>
+          </div>
         </div>
-      </div>
-      <ProductsFilters />
-      <div className={classes.container_liked__product}>
-        {filteredProducts.map((product) => (
-          <ProductsItem key={product.id} product={product} />
-        ))}
-      </div>
-    </>
-  );
+        {likedProducts.length === 0 ? (
+          <EmptyCart />
+        ) : (
+          <>
+            <ProductsFilters />
+            <div className={classes.container_liked__product}>
+              {filteredProducts.map((product) => (
+                <ProductsItem key={product.id} product={product} />
+              ))}
+            </div>
+          </>
+        )}
+      </>
+    );
 };

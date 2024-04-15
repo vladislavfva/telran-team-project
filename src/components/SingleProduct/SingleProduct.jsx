@@ -138,7 +138,7 @@ function SingleProduct({ product }) {
             <button
               className={classes.btn_add}
               onClick={() => {
-                if (amount > 2) {
+                if (amount > 1) {
                   for (let i = 0; i < amount; i++) {
                     dispatch(addToCart({ product }));
                   }

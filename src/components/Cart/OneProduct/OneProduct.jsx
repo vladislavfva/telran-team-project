@@ -26,13 +26,15 @@ function OneProduct({ product }) {
   };
 
   return (
-    <Link to={`/product/${product.id}`}>
-      <div className={classes.one_product}>
+    
+    <div className={classes.one_product}>
+      <Link to={`/product/${product.id}`}>
         <img
           src={process.env.REACT_APP_BACKEND_BASE_URL + product.image}
           alt={product.title}
           className={classes.preview}
         />
+        </Link>
         <div className={classes.info}>
           <div className={classes.top_info}>
             <p className={classes.title}>{product.title}</p>
@@ -72,7 +74,7 @@ function OneProduct({ product }) {
           </div>
         </div>
       </div>
-    </Link>
+   
   );
 }
 
