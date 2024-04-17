@@ -96,6 +96,15 @@
   transform: scale(.99);
 }
 
+.like {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
 .close {
   position: absolute;
   top: 32px;

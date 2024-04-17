@@ -2,7 +2,7 @@
   /* removes scrolling on a background-image */
   display: flex;
 
-  background-image: linear-gradient(rgb(61, 61, 61, 0.3), rgb(61, 61, 61, 0.2)),
+  background-image: linear-gradient(rgb(61, 61, 61, 0.5), rgb(61, 61, 61, 0.3)),
     url("../../assets/images/baner_images.jpg");
   background-size: cover;
   background-position: center bottom;
