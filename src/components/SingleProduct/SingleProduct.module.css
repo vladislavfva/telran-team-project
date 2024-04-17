@@ -134,7 +134,6 @@ h4 {
 .btn {
   width: 58px;
   height: 58px;
-  border-radius: var(--radius-small);
   background: transparent;
   border: none;
   cursor: pointer;

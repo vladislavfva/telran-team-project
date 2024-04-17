@@ -42,28 +42,29 @@ function ProductsItem({ product }) {
           </div>
         </div>
       </Link>
-      <div className={classes.product_liked}>
-        <button
-          className={classes.add_to_liked}
-          onClick={() => {
-            if (likedProduct ) {
-              dispatch(remove({ product }));
-            } else {
-              dispatch(addToLiked({ product }));
-            }
-          }}
-        >
-          {likedProduct ? <LikedIcon isActive={true} /> : <LikedIcon />}
-        </button>
-      </div>
-      <div className={classes.product_actions}>
-        <button
-          className={classes.add_to_cart}
-          onClick={() => dispatch(addToCart({ product }))}
-        >
-          {inCart ? <CartIcon isActive={true} /> : <CartIcon />}
-        </button>
-      </div>
+        <div className={classes.product_liked}>
+          <button
+            className={classes.add_to_liked}
+            onClick={() => {
+              if (likedProduct) {
+                dispatch(remove({ product }));
+              } else {
+                dispatch(addToLiked({ product }));
+              }
+            }}
+          >
+            {likedProduct ? <LikedIcon isActive={true} /> : <LikedIcon />}
+          </button>
+        </div>
+        <div className={classes.product_actions}>
+          <button
+            className={classes.add_to_cart}
+            onClick={() => dispatch(addToCart({ product }))}
+          >
+            {inCart ? <CartIcon isActive={true} /> : <CartIcon />}
+          </button>
+        </div>
+    
     </div>
   );
 }

@@ -19,14 +19,14 @@ function SingleProduct({ product }) {
   const [amount, setAmount] = useState(1);
 
   const likedProduct = useSelector((state) =>
-    state.liked.liked.some((item) => item.product)
+    state.liked.liked.some((item) => item.product.id === +id)
   );
 
   useEffect(() => {
     dispatch(getSingleProduct(id));
   }, [dispatch, id]);
 
-  if (!product || product.length === 0) {
+  if (!product || product.length === 0 || !product) {
     return <div style={{ color: "transparent" }}>Loading...</div>;
   }
 

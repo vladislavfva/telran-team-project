@@ -56,10 +56,11 @@
   border-radius: var(--radius-small);
 }
 
+
 .product_liked {
   position: absolute;
   top: var(--size-small);
-  right: 70px;
+  right:var(--size-small);
 }
 
 .add_to_liked {
@@ -70,7 +71,7 @@
 
 .product_actions {
   position: absolute;
-  top: var(--size-small);
+  top: 75px;
   right: var(--size-small);
 }
 

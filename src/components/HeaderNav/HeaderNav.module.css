@@ -51,6 +51,8 @@
 .central_container__nav {
   padding: 30px 0px 35px 0px;
   color: var(--color-text);
+ z-index: 999;
+  
 }
 
 .btn {
@@ -89,16 +91,14 @@
   color: var(--color-text-gray);
 }
 
-
 .nav_element__style:hover {
   color: var(--color-accent);
   text-decoration-line: underline;
 }
 
-.nav_element__style:focus {
+.active {
   color: var(--color-accent);
 }
-
 
 .icon_container {
   display: flex;
@@ -177,6 +177,12 @@
   line-height: 10px;
 }
 
+.iconActive{
+background: #c8e604 ;
+color: #202020;
+}
+
+
 @media screen and (max-width: 1439px) {
   .logo {
     width: 68px;
@@ -252,7 +258,6 @@
   .central_container__nav.active {
     right: 0;
     transition: right 0.5s;
-    z-index: 999;
   }
 
   .nav_container {
@@ -271,7 +276,6 @@
   .nav_element__style:hover {
     color: var(--color-accent);
   }
-
 
   .btn_burger__menu {
     display: flex;
@@ -390,7 +394,7 @@
     line-height: 7.2px;
   }
 
-    .liked_amount{
+  .liked_amount {
     top: 5px;
     left: 0;
     width: 18px;

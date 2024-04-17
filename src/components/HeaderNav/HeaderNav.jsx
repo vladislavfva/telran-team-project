@@ -1,23 +1,25 @@
-import React from 'react';
-import { useState } from 'react';
-import classes from './HeaderNav.module.css';
-import { SvgHeart } from '../../assets/iconComponents/SvgHeart';
-import { SvgBascket } from '../../assets/iconComponents/SvgBascket';
-import logo from '../../assets/iconComponents/logo.svg';
+import React from "react";
+import { useState } from "react";
+import classes from "./HeaderNav.module.css";
+import { SvgHeart } from "../../assets/iconComponents/SvgHeart";
+import { SvgBascket } from "../../assets/iconComponents/SvgBascket";
+import logo from "../../assets/iconComponents/logo.svg";
 
-import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import { calculateTotals } from '../../store/slices/cartSlice';
-import DiscountPopup from '../DiscountPopup/DiscountPopup';
-import { getSingleProduct } from '../../store/slices/singleProductSlice';
-
-import { SvgMoonSun } from '../../assets/iconComponents/SvgMoonSun';
-import { countLike } from '../../store/slices/likedSlice';
+import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { calculateTotals } from "../../store/slices/cartSlice";
+import DiscountPopup from "../DiscountPopup/DiscountPopup";
+import { getSingleProduct } from "../../store/slices/singleProductSlice";
+import { useLocation } from "react-router-dom";
+import { SvgMoonSun } from "../../assets/iconComponents/SvgMoonSun";
+import { countLike } from "../../store/slices/likedSlice";
 
 export const HeaderNav = ({ handleChange, isChecked }) => {
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
+
+ const location = useLocation()
 
   const dispatch = useDispatch();
   const { cart, amount } = useSelector((state) => state.cart);
@@ -50,9 +52,11 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
     dispatch(countLike());
   }, [liked]);
 
-   const closeMenu = () => {
-     setBurgerMenuOpen(false);
-   };
+  const closeMenu = () => {
+    setBurgerMenuOpen(false);
+  };
+
+  
 
   return (
     <div className={classes.container}>
@@ -98,8 +102,11 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           <ul>
             <li>
               <NavLink
-                to={"/"}
-                className={`${classes.nav_element__style} ${classes.main}`}
+                exact
+                to="/"
+                className={`${classes.nav_element__style} ${
+                  location.pathname === "/" ? classes.active : ""
+                }`}
                 onClick={closeMenu}
               >
                 Main Page
@@ -109,8 +116,11 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           <ul>
             <li>
               <NavLink
-                to={"/categories"}
-                className={classes.nav_element__style}
+                exact
+                to="/categories"
+                className={`${classes.nav_element__style} ${
+                  location.pathname === "/categories" ? classes.active : ""
+                }`}
                 onClick={closeMenu}
               >
                 Categories
@@ -120,8 +130,11 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           <ul>
             <li>
               <NavLink
-                to={"/all-products"}
-                className={classes.nav_element__style}
+                exact
+                to="/all-products"
+                className={`${classes.nav_element__style} ${
+                  location.pathname === "/all-products" ? classes.active : ""
+                }`}
                 onClick={closeMenu}
               >
                 All products
@@ -131,8 +144,11 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
           <ul>
             <li>
               <NavLink
-                to={"/all-sales"}
-                className={classes.nav_element__style}
+                exact
+                to="/all-sales"
+                className={`${classes.nav_element__style} ${
+                  location.pathname === "/all-sales" ? classes.active : ""
+                }`}
                 onClick={closeMenu}
               >
                 All sales
@@ -149,11 +165,23 @@ export const HeaderNav = ({ handleChange, isChecked }) => {
       <div className={classes.container_icon__menu}>
         <div className={classes.icon_container}>
           <Link className={classes.liked_container} to="/favorite">
-            <p className={classes.liked_amount}>{amountLike}</p>
+            <p
+              className={`${classes.liked_amount}  ${
+                location.pathname === "/favorite" ? classes.iconActive : ""
+              }`}
+            >
+              {amountLike}
+            </p>
             <SvgHeart />
           </Link>
           <Link className={classes.cart_wrapper} to="/cart">
-            <p className={classes.cart_amount}>{amount}</p>
+            <p
+              className={`${classes.cart_amount} ${
+                location.pathname === "/cart" ? classes.iconActive : ""
+              }`}
+            >
+              {amount}
+            </p>
             <SvgBascket />
           </Link>
         </div>
