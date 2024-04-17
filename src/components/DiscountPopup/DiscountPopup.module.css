@@ -84,6 +84,7 @@
   border-radius: var(--radius-small);
   font-size: 20px;
   background: #fffff1;
+  color: #424436;
   cursor: pointer;
   transition: background-color ease 0.3s;
 }

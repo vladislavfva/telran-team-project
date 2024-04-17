@@ -47,6 +47,7 @@ h2{
   border-radius: var(--radius-small);
   padding: 16px 32px;
   font-size: 20px;
+  color: #424436;
   cursor: pointer;
 }
 
@@ -58,6 +59,7 @@ h2{
 .error {
   text-align: start;
   font-size: var(--size-small);
+  color: #FFFFFF;
 }
 
 @media screen and (max-width: 1439px) {

@@ -11,6 +11,7 @@ body {
   font-size: 20px;
   font-weight: 500;
   color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 h1, h2 {
@@ -67,10 +68,6 @@ img {
   --color-text-grey: #a3a3a3;
   --color-discount: #F26D22;
   --color-card-bg: #202020;
-}
-
-.app{
-  background-color: var(--color-background);
 }
 
 .container {
