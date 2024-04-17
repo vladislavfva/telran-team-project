@@ -34,21 +34,19 @@ const singleProductSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder
-      .addCase(getSingleProduct.fulfilled, (state, action) => {
-        console.log('fulfilled');
-        state.singleProduct = action.payload;
+    builder.addCase(getSingleProduct.fulfilled, (state, action) => {
+      state.singleProduct = action.payload;
 
-        // Logic to update discountProduct
-        if (action.payload[0].id === 2) {
-          state.discountProduct = action.payload.map((product) => ({
-            ...product,
-            discont_price: (product.price / 2).toFixed(2),
-          }));
-        }
-      })
-      .addCase(getSingleProduct.pending, () => console.log('pending'))
-      .addCase(getSingleProduct.rejected, () => console.log('rejected'));
+      // Logic to update discountProduct
+      if (action.payload[0].id === 2) {
+        state.discountProduct = action.payload.map((product) => ({
+          ...product,
+          discont_price: (product.price / 2).toFixed(2),
+        }));
+      }
+    });
+    /* .addCase(getSingleProduct.pending, () => console.log('pending'))
+      .addCase(getSingleProduct.rejected, () => console.log('rejected')); */
   },
 });
 

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   categories: [],
@@ -6,17 +6,17 @@ const initialState = {
 };
 
 export const getCategories = createAsyncThunk(
-  "categories/getCategories",
+  'categories/getCategories',
   async (_, { rejectWithValue, dispatch }) => {
     try {
       const response = await fetch(
-        process.env.REACT_APP_BACKEND_BASE_URL + "/categories/all"
+        process.env.REACT_APP_BACKEND_BASE_URL + '/categories/all'
       );
 
       if (!response.ok) {
-        throw new Error("Server Error!");
+        throw new Error('Server Error!');
       }
-      
+
       const data = await response.json();
       return data;
     } catch (err) {
@@ -26,19 +26,17 @@ export const getCategories = createAsyncThunk(
 );
 
 const categoriesSlise = createSlice({
-  name: "categories",
+  name: 'categories',
   initialState,
   // reducers: {},
   extraReducers: (builder) => {
-    builder
-      .addCase(getCategories.fulfilled, (state, action) => {
-        console.log("fulfilled");
-        state.categories = action.payload;
-      })
-      .addCase(getCategories.pending, () => console.log("pending"))
-      .addCase(getCategories.rejected, () => console.log("rejected"));
+    builder.addCase(getCategories.fulfilled, (state, action) => {
+      state.categories = action.payload;
+    });
+    /* .addCase(getCategories.pending, () => console.log('pending'))
+      .addCase(getCategories.rejected, () => console.log('rejected')); */
   },
 });
 
-export const { setCategories} = categoriesSlise.actions;
+export const { setCategories } = categoriesSlise.actions;
 export default categoriesSlise.reducer;
