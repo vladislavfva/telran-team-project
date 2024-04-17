@@ -7,8 +7,12 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useLocalStorage('isDarkTheme', false);
 
+  document
+    .querySelector('body')
+    .setAttribute('data-theme', isDarkTheme ? 'dark' : 'light');
+
   return (
-    <div className="app" data-theme={isDarkTheme ? 'dark' : 'light'}>
+    <>
       <ScrollToTop />
       <div className="container">
         <HeaderNav
@@ -20,7 +24,7 @@ function App() {
         </Outlet>
         <Footer />
       </div>
-    </div>
+    </>
   );
 }
 
