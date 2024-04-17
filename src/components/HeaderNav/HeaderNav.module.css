@@ -30,10 +30,10 @@
   background: var(--color-text);
   border-radius: 30px;
   position: relative;
+  cursor: pointer;
 }
 
 .dark_mode__input + .dark_mode__label::after {
-  cursor: pointer;
   content: "";
   position: absolute;
   left: 3px;
