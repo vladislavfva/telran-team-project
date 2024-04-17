@@ -1,5 +1,5 @@
-import React from "react";
-import classes from "../../components/HeaderNav/HeaderNav.module.css";
+import React from 'react';
+import classes from '../../components/HeaderNav/HeaderNav.module.css';
 
 export const SvgMoonSun = () => {
   return (
@@ -11,7 +11,7 @@ export const SvgMoonSun = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_5447_25633)">
+      <g clipPath="url(#clip0_5447_25633)">
         <path
           d="M15.9989 22.7637C15.6425 22.7637 15.3536 23.0525 15.3536 23.409V25.3572C15.3536 25.7137 15.6425 26.0025 15.9989 26.0025C16.3554 26.0025 16.6443 25.7137 16.6443 25.3572V23.409C16.6443 23.0525 16.3554 22.7637 15.9989 22.7637Z"
           fill="var(--color-background)"

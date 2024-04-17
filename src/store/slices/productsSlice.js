@@ -21,7 +21,6 @@ export const getProducts = createAsyncThunk(
     );
 
     const data = await res.json();
-    console.log(data);
     return data;
   }
 );
@@ -112,32 +111,31 @@ export const productsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder
-      .addCase(getProducts.fulfilled, (state, action) => {
-        state.allProducts = state.products;
-        state.loaded = true;
-        if (state.filterDiscounted) {
-          state.products = action.payload.filter(
-            (product) => product.discont_price > 0
-          );
-        } else {
-          state.products = action.payload;
+    builder.addCase(getProducts.fulfilled, (state, action) => {
+      state.allProducts = state.products;
+      state.loaded = true;
+      if (state.filterDiscounted) {
+        state.products = action.payload.filter(
+          (product) => product.discont_price > 0
+        );
+      } else {
+        state.products = action.payload;
+      }
+      state.products.map((el) => {
+        if (el.id === 2) {
+          el.discont_price = (el.price / 2).toFixed(2);
         }
-        state.products.map((el) => {
-          if (el.id === 2) {
-            el.discont_price = (el.price / 2).toFixed(2);
-          }
-        });
+      });
 
-        if (state.randomize) {
-          state.products = state.products
-            .slice()
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 4);
-        }
-      })
-      .addCase(getProducts.pending, () => console.log('pending'))
-      .addCase(getProducts.rejected, () => console.log('rejected'));
+      if (state.randomize) {
+        state.products = state.products
+          .slice()
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 4);
+      }
+    });
+    /* .addCase(getProducts.pending, () => console.log('pending'))
+      .addCase(getProducts.rejected, () => console.log('rejected')); */
   },
 });
 
